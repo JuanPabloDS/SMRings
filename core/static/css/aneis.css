@@ -1,4 +1,4 @@
-/* Escolha de aneis*/
+/* Compra de aneis*/
 
 .aneis-tam{
     font-size: 36px;
@@ -12,11 +12,15 @@
 
 .select-tam {
     width: 50%;
+    padding: 5px 30px;
+    margin-bottom: -3px;
+    padding-left: 1px;
 }
 
 .div-tam{
     width: 50%;
     float: left;
+    padding-right: 19px;
 
 }
 
@@ -29,4 +33,33 @@
 .tamanho{
     font-size: 26px;
 
+}
+
+.qtd-tam{
+    height: 30px;
+}
+
+.compra{
+ background-color: #aec827;
+}
+
+/* Seleçao de aneis*/
+
+.img-escolha-aneis{
+    height: 150px;
+    width: 150px;
+}
+
+.cor-preco{
+    color: #f97794;
+    font-size: 20px;
+}
+
+.visualizar{
+    background-color: #f97794;
+    padding: 8px;
+   }
+
+.anel-margin{
+    margin-bottom: 0px;
 }
