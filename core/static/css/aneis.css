@@ -1,0 +1,32 @@
+/* Escolha de aneis*/
+
+.aneis-tam{
+    font-size: 36px;
+    color: #f97794;
+
+}
+
+.preco{
+    font-size: 20px;
+}
+
+.select-tam {
+    width: 50%;
+}
+
+.div-tam{
+    width: 50%;
+    float: left;
+
+}
+
+.img-aneis{
+    height: 350px;
+    width: 350px;
+    float: right;
+}
+
+.tamanho{
+    font-size: 26px;
+
+}
