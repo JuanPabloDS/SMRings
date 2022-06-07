@@ -12,5 +12,14 @@ def index(request):
 
     return render(request, 'index.html', context)
 
-def aneis(request):
-    return render(request, 'aneis.html')
+
+def aneis(request, pk):
+    anel = Anel.objects.get(id=pk) 
+
+    context = {
+        'anel': anel
+    }
+
+
+
+    return render(request, 'aneis.html', context)

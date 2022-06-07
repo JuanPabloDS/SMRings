@@ -18,6 +18,8 @@ class Migration(migrations.Migration):
                 ('nome', models.CharField(max_length=100, verbose_name='Nome')),
                 ('preco', models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Preço')),
                 ('estoque', models.IntegerField(verbose_name='Quantidade em estoque')),
+                ('imagem', models.CharField(max_length=150, verbose_name='Imagem')),
+
             ],
         ),
     ]

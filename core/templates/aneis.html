@@ -30,33 +30,30 @@
 <body>
     <!-- Header Section Start -->
     <header id="slider-area">  
-        <nav class="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
-          <div class="container">          
-            <a class="navbar-brand" href="/"><span class="lni lni-crown"></span>  AM RING</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="lni-menu"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                <li class="nav-item">
-                  <a class="nav-link page-scroll" href="/#slider-area">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link page-scroll" href="/#services">Anéis</a>
-                </li>  
-                <li class="nav-item">
-                  <a class="nav-link page-scroll" href="/#contact">Contato</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link page-scroll" href="#features">Carrinho</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link page-scroll" href="#features">Login</a>
-                </li>  
-              </ul>              
-            </div>
+      <nav class="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
+        <div class="container">          
+          <a class="navbar-brand" href="index.html"><span class="lni lni-crown"></span>  AM RING</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lni-menu"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="../#services">Anéis</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#features">Carrinho</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#features">Login</a>
+              </li>  
+            </ul>              
           </div>
-        </nav> 
+        </div>
+      </nav> 
     
     <!-- Compra de anéis -->
 
@@ -70,16 +67,16 @@
         <div class="row" data-wow-delay="0.2s">
             <div class="container">
               <div class="div-tam section-header" data-wow-delay="0.2s">
-                <img src="{% static 'img/aneis/solitario.webp' %}" alt="" class="img-aneis">
+                <img src="{{ anel.imagem }}" alt="" class="img-aneis">
               </div>
               <div class="div-tam">
                 <br>
                 <div>
-                  <p class="aneis-tam">Anel de prata</p>
+                  <p class="aneis-tam">{{ anel.nome }}</p>
                 </div>
                 <br>
                 <div>
-                  <p class="preco">Apartir de R$ 4.800,00</p>
+                  <p class="preco">Apartir de R$ {{ anel.preco }}</p>
                 </div>
                 <br><br>
                 <div>

@@ -4,6 +4,7 @@ from .views import index, aneis
 
 urlpatterns = [
     path('', index, name='index'),
-    path('aneis.html', aneis, name='aneis')
+    path('services', index, name='index#aneis'),
+    path('aneis/<int:pk>', aneis, name='aneis'),
 
 ]
