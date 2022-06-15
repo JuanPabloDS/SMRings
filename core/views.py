@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib import messages
 
 from .forms import AnelModelForm
@@ -29,28 +29,25 @@ def aneis(request, pk):
     return render(request, 'aneis.html', context)
 
 def cadastro(request):
+    if str(request.user) != 'AnonymousUser':
+        if str(request.method) == 'POST':
+            form = AnelModelForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
 
-    if str(request.method) == 'POST':
-        form = AnelModelForm(request.POST, request.FILES)
-        if form.is_valid():
-            ane = form.save(commit=False)
+                messages.success(request, 'Anel salvo com sucesso!')
+                form = AnelModelForm()
 
-            print(f'Nome: {ane.nome}')
-            print(f'preco: {ane.preco}')
-            print(f'estoque: {ane.estoque}')
-            print(f'imagem: {ane.imagem}')
-
-            messages.success(request, 'Anel salvo com sucesso!')
+            else:
+                messages.error(request, 'Erro ao salvar anel')
+        else:
             form = AnelModelForm()
 
-        else:
-            messages.error(request, 'Erro ao salvar anel')
-    else:
-        form = AnelModelForm()
 
-
-    context = {
-        'form': form
-    }
+        context = {
+            'form': form
+        }
     
-    return render(request, 'cadastro.html', context)
+        return render(request, 'cadastro.html', context)
+    else:
+        return redirect('index')
