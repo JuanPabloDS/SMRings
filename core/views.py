@@ -1,8 +1,4 @@
 from django.views.generic import TemplateView, DetailView
-from django.shortcuts import redirect, render
-from django.contrib import messages
-
-from .forms import AnelModelForm
 
 from .models import Anel
 
