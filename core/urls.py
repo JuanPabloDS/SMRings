@@ -1,11 +1,10 @@
 from django.urls import path
 
-from .views import index, aneis, cadastro
+from .views import IndexView, AneisDetailView
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('services', index, name='index#aneis'),
-    path('aneis/<int:pk>', aneis, name='aneis'),
-    path('cadastro', cadastro, name='cadastro')
+    path('', IndexView.as_view(), name='index'),
+    # path('services', index, name='index#aneis'),
+    path('aneis/<int:pk>', AneisDetailView.as_view(), name='aneis'),
 
 ]

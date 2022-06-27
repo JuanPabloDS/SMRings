@@ -1,3 +1,4 @@
+from django.views.generic import TemplateView, DetailView
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
@@ -5,49 +6,23 @@ from .forms import AnelModelForm
 
 from .models import Anel
 
-def index(request):
-    aneis = Anel.objects.all()
-
-    context = {
-        'aneis': aneis
-    }
+# Class based View
+class IndexView(TemplateView):
+    template_name: str = 'index.html'
 
 
-    return render(request, 'index.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['aneis'] = Anel.objects.all()
+        return context
 
 
-def aneis(request, pk):
-    
-    anel = Anel.objects.get(id=pk) 
+class AneisDetailView(DetailView):
+    template_name: str = 'aneis.html'
 
-    context = {
-        'anel': anel
-    }
+    queryset = Anel.objects.all()
 
 
-
-    return render(request, 'aneis.html', context)
-
-def cadastro(request):
-    if str(request.user) != 'AnonymousUser':
-        if str(request.method) == 'POST':
-            form = AnelModelForm(request.POST, request.FILES)
-            if form.is_valid():
-                form.save()
-
-                messages.success(request, 'Anel salvo com sucesso!')
-                form = AnelModelForm()
-
-            else:
-                messages.error(request, 'Erro ao salvar anel')
-        else:
-            form = AnelModelForm()
-
-
-        context = {
-            'form': form
-        }
-    
-        return render(request, 'cadastro.html', context)
-    else:
-        return redirect('index')
+    def get_object(self):
+        obj = super().get_object()
+        return obj
