@@ -1,3 +1,4 @@
+from django.urls import get_mod_func
 from django.views.generic import TemplateView, DetailView
 
 from .models import Anel
@@ -22,3 +23,10 @@ class AneisDetailView(DetailView):
     def get_object(self):
         obj = super().get_object()
         return obj
+
+
+
+
+
+
+    

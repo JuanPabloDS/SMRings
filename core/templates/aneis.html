@@ -7,7 +7,7 @@
         <div class="container">
         <div class="section-header">          
             <h2 class="section-title">Comprar</h2>
-            <p class="section-subtitle">Selecione o tamanho correto do anél</p>
+            <p class="section-subtitle">Selecione o tamanho correto do anel</p>
         </div>
         <div class="row" data-wow-delay="0.2s">
             <div class="container">
@@ -31,7 +31,11 @@
                 <div>
                   <select class="form-select form-select-sm form-control select-tam" aria-label=".form-select-sm example" size="1">
                     <option selected id="select-loop">Selecionar tamanho</option>
-                    <script>tamanho_aneis()</script>
+
+                    {% for t in anel.tamanho.all %}
+                      <option value="">{{ t.tamanho }}</option>
+                    {% endfor %}
+
                   </select>
                 </div>
                 <br>
@@ -61,8 +65,10 @@
     </section>
     <!-- Services Section End -->
 
-    {% endblock %}
+
 
 <!-- Footer Section Start -->
 {% include 'footer.html' %}
 <!-- Footer Section End --> 
+
+{% endblock %}
