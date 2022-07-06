@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="" class="section-header bg-gray ftco-section">
+    <div class="container login-wrap p-4 p-md-5">
+      
+      <div class="section-header text-center">
+        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Cadastro</h2>
+        <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+      </div>
+      <br>
+
+      <div class="">
+        <div class="row wow fadeInUp" data-wow-delay="0.3s">
+          <div class="col-lg-6 container">
+            <div class="contact-block">
+              <form id="contato" method="post" action="{% url 'index' %}">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" placeholder="Nome" id="assunto" name="assunto" class="form-control" required data-error="Please enter your subject">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" placeholder="E-mail" id="assunto" name="assunto" class="form-control" required data-error="Please enter your subject">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" placeholder="Cpf" id="assunto" name="assunto" class="form-control" required data-error="Please enter your subject">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" placeholder="Senha" id="assunto" name="assunto" class="form-control" required data-error="Please enter your subject">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" placeholder="Senha novamente" id="assunto" name="assunto" class="form-control" required data-error="Please enter your subject">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                    <br>
+                  </div>
+                    <div class="submit-button container">
+                      <button class="btn btn-common" id="form-submit" type="submit">Cadastrar</button>
+                      <div id="msgSubmit" class="h3 text-center hidden"></div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+<!-- Footer Section Start -->
+{% include 'footer.html' %}
+<!-- Footer Section End --> 
+
+{% endblock %}
