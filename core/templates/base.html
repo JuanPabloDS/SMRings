@@ -56,6 +56,17 @@
           </div>
         </div>
       </nav>
+    </div>
+    <div class='container'>
+        {% if request.user.is_authenticated %}
+        <div class='row'>
+            <div class='col'>
+                <h1>Premium</h1>
+                <p>{{ premium_content }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
     </header> 
 
     {% block content %} {% endblock %}  

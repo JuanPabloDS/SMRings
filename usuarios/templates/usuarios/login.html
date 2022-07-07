@@ -2,56 +2,54 @@
 {% load static %}
 {% block content %}
 
-<section id="" class="section-header bg-gray logar">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Login</h2>
-            <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+
+<section class="ftco-section">
+    <div class="container section-title wow fadeInDown" data-wow-delay="0.3s">
+        <div class="row justify-content-center">
         </div>
-        <br>
-        <div class="cor container">
-            <br><br>
-            <div class="row wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-lg-6 container">
-                    <div class="contact-block">
-                        <form id="contato" method="post" action="{% url 'index' %}"> 
-                            {% csrf_token %} 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="E-mail" id="E-mail" name="assunto" class="form-control" required data-error="Please enter your subject">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Senha" id="Senha" name="assunto" class="form-control" required data-error="Please enter your subject">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="submit-button container">
-                                    <button class="btn btn-common" id="form-submit" type="submit">Logar</button>
-                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                    <div class="clearfix"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-5">
+                <div class="wrap">
+                    <div class="login-wrap p-4 p-md-5">
+                  <div class="d-flex">
+                            <div class="w-100">
+                                <div class="section-header text-center">
+                                    <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Login</h2>
+                                    <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                  </div>
+                        <form action="#" class="signin-form" method="POST">
+                            {% csrf_token %}
+                      <div class="form-group mt-3">
+                          <input type="text" name="username" required id="id_username" placeholder="Nome do Usúario" class="form-control" required data-error="Please enter your subject">
+                      </div>
+                <div class="form-group">
+                    <input type="password" name="password" required id="id_password" placeholder="Senha" class="form-control" required data-error="Please enter your subject">
                 </div>
-                
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Logar</button>
+                </div>
+                <div class="form-group d-md-flex">
+                    <div class="w-50 text-left">
+                        <label class="checkbox-wrap checkbox-primary mb-0">Lembre-se
+                                  <input type="checkbox" checked>
+                                  <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#">Esqueceu a senha</a>
+                                </div>
+                </div>
+              </form>
+              <p class="text-center">Não tem cadastro? <a href="{% url 'cadastro' %}">Cadastrar</a></p>
             </div>
-            <br><br><br>
-            <div>
-                <p class="link">
-                    Ainda não tem conta?
-                    <a href="#paracadastro">  Cadastre-se</a>
-                  </p>
+          </div>
             </div>
         </div>
     </div>
 </section>
-
-
+<br><br><br><br>
 
 <!-- Footer Section Start --> 
 {% include 'footer.html' %}
