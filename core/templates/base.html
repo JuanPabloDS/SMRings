@@ -46,8 +46,16 @@
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="../#services">Anéis</a>
               </li>  
-              <li class="nav-item">
-                <a class="nav-link page-scroll" href="../#features">Carrinho</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="../#features" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carrinho</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Anéis<a href=""><p>Excluir</p></a></a>
+                  <a class="dropdown-item" href="#">Outra ação</a>
+                  <a class="dropdown-item" href="#">Algo mais aqui</a>
+                </div>
+
+
+
               </li>
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="{% url 'login' %}">Login</a>

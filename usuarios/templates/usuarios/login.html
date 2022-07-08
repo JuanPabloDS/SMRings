@@ -22,10 +22,10 @@
                         <form action="#" class="signin-form" method="POST">
                             {% csrf_token %}
                       <div class="form-group mt-3">
-                          <input type="text" name="username" required id="id_username" placeholder="Nome do Usúario" class="form-control" required data-error="Please enter your subject">
+                          <input type="email" name="email" required id="email" placeholder="Nome do Usúario" class="form-control" required data-error="Please enter your subject">
                       </div>
                 <div class="form-group">
-                    <input type="password" name="password" required id="id_password" placeholder="Senha" class="form-control" required data-error="Please enter your subject">
+                    <input type="password" name="senha" required id="senha" placeholder="Senha" class="form-control" required data-error="Please enter your subject">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="form-control btn btn-primary rounded submit px-3">Logar</button>
