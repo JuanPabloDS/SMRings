@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'usuarios.apps.UsuariosConfig', # Colocar no codigo
+    'carrinho',
     'bootstrap4',
     'stdimage',
 ]
