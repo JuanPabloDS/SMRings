@@ -12,6 +12,10 @@ class Clientes(models.Model):
     def register(self):
         self.save()
   
+    class Meta:
+        verbose_name = 'Cliente'
+        verbose_name_plural = 'Clientes'
+
     @staticmethod
     def get_cliente_by_email(email):
         try:
@@ -24,4 +28,7 @@ class Clientes(models.Model):
             return True
   
         return False
+    
+    def __str__(self) -> str:
+        return f'{self.nome} {self.sobrenome}'
 
