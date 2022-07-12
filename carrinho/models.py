@@ -24,6 +24,8 @@ class CarrinhoAneis(models.Model):
     anel_id = models.ForeignKey(Anel, on_delete=models.SET('0'))
     quantidade = models.IntegerField('Quantidade')
 
+    def register(self):
+        self.save()
 
 
     class Meta:

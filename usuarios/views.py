@@ -7,7 +7,10 @@ from django.views import View
 
 from .models import Clientes
 
-from .forms import LoginForm, RegisterForm
+from django.contrib.auth import authenticate
+
+
+
 
 class Login(View):
     return_url = None
@@ -15,28 +18,34 @@ class Login(View):
     def get(self, request):
         Login.return_url = request.GET.get('return_url')
         return render(request, 'usuarios/login.html')
-  
+
+
     def post(self, request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         cliente = Clientes.get_cliente_by_email(email)
         error_message = None
-        print(f'asd{cliente}')
+
         if cliente:
             flag = check_password(senha, cliente.senha)
             if flag:
                 request.session['cliente'] = cliente.id
-  
+                print(request.session['cliente'])
+
                 if Login.return_url:
                     print('12')
                     return HttpResponseRedirect(Login.return_url)
                 else:
                     Login.return_url = None
+                    
+                    
+
                     return redirect('/')
             else:
                 error_message = 'Invalid 1 !!'
         else:
             error_message = 'Invalid 2 !!'
+
   
         print(email, senha)
         print(error_message)

@@ -9,57 +9,61 @@
             <h2 class="section-title">Comprar</h2>
             <p class="section-subtitle">Selecione o tamanho correto do anel</p>
         </div>
-        <div class="row" data-wow-delay="0.2s">
-            <div class="container">
-              <div class="div-tam section-header" data-wow-delay="0.2s">
-                <img src="{{ anel.imagem.url }}" alt="" class="img-aneis">
-              </div>
-              <div class="div-tam">
-                <br>
-                <div>
-                  <p class="aneis-tam">{{ anel.nome }}</p>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="row" data-wow-delay="0.2s">
+              <input style="visibility:hidden" type="text" name="anel_id" required id="anel_id" value="{{ anel.id }}" >
+              <div class="container">
+                <div class="div-tam section-header" data-wow-delay="0.2s">
+                  <img src="{{ anel.imagem.url }}" alt="" class="img-aneis">
                 </div>
-                <br>
-                <div>
-                  <p class="preco">Apartir de R$ {{ anel.preco }}</p>
-                </div>
-                <br><br>
-                <div>
-                  <p class="tamanho">Tamanho</p>
-                </div>
-                <br/>
-                <div>
-                  <select class="form-select form-select-sm form-control select-tam" aria-label=".form-select-sm example" size="1">
-                    <option selected id="select-loop">Selecionar tamanho</option>
-
-                    {% for t in anel.tamanho.all %}
-                      <option value="">{{ t.tamanho }}</option>
-                    {% endfor %}
-
-                  </select>
-                </div>
-                <br>
+                <div class="div-tam">
+                  <br>
                   <div>
-                    <label>
-                      <span data-hook="number-input-spinner-title" >Quantidade</span>
-                      <div>
-                        <input type="number" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" max="99999" min="1"/>
-                        <div aria-hidden="true">
-                          <span data-hook="number-input-spinner-up-arrow">
-                          </span>
-                          <span data-hook="number-input-spinner-down-arrow">
-                          </span>
-                        </div>
-                      </div>
-                    </label>
+                    <p class="aneis-tam">{{ anel.nome }}</p>
                   </div>
-                </div>
-              </div> 
-            </div>
-          <div class="container section-header">
-            <button type="button" class="btn compra">COMPRAR</button>
+                  <br>
+                  <div>
+                    <p class="preco">Apartir de R$ {{ anel.preco }}</p>
+                  </div>
+                  <br><br>
+                  <div>
+                    <p class="tamanho">Tamanho</p>
+                  </div>
+                  <br/>
+                  <div>
+                    <select class="form-select form-select-sm form-control select-tam" aria-label=".form-select-sm example" size="1">
+                      <option selected id="select-loop">Selecionar tamanho</option>
+
+                      {% for t in anel.tamanho.all %}
+                        <option value="">{{ t.tamanho }}</option>
+                      {% endfor %}
+
+                    </select>
+                  </div>
+                  <br>
+                    <div>
+                      <label>
+                        <span data-hook="number-input-spinner-title" >Quantidade</span>
+                        <div>
+                          <input type="number" name="quantidade" required id="quantidade" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" max="99999" min="1"/>
+                          <div aria-hidden="true">
+                            <span data-hook="number-input-spinner-up-arrow">
+                            </span>
+                            <span data-hook="number-input-spinner-down-arrow">
+                            </span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+              <div class="submit-button container section-header">
+                <button class="btn btn-common compra" id="form-submit" type="submit">Comprar</button>
+              <div id="msgSubmit" class="h3 text-center hidden"></div>
           </div>
-        </div>
+        </form>
         </div>
         </div>
     </section>

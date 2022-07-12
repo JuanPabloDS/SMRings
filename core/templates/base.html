@@ -45,6 +45,11 @@
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="{% url 'index' %}">Home</a>
               </li>
+              {% if request.session.cliente %}
+              <p>Funciona</p>
+              {% else %}
+              <p>nada</p>
+              {% endif %}
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="../#services">Anéis</a>
               </li>  
