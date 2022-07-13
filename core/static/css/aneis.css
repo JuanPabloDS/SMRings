@@ -3,6 +3,7 @@
 .aneis-tam{
     font-size: 36px;
     color: #f97794;
+    height: 70px;
 
 }
 
@@ -28,6 +29,7 @@
     height: 350px;
     width: 350px;
     float: right;
+    margin-right: 50px;
 }
 
 .tamanho{
