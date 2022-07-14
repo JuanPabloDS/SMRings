@@ -1,3 +1,4 @@
+from urllib import request
 from django.db import models
 
 
@@ -31,4 +32,6 @@ class Clientes(models.Model):
     
     def __str__(self) -> str:
         return f'{self.nome} {self.sobrenome}'
+
+
 

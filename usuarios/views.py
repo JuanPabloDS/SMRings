@@ -1,3 +1,4 @@
+from genericpath import exists
 from urllib import request
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, get_user_model
@@ -11,24 +12,18 @@ from .models import Clientes
 from django.contrib.auth import authenticate
 
 
-
-
 class Login(View):
     return_url = None
-  
+    
 
     def get(self, request):
         Login.return_url = request.GET.get('return_url')
-        try:
-            req = request.session['cliente']
-        except:
-            req = ''
 
-        if req == '':
-            return render(request, 'usuarios/login.html')
-        else:
+        if request.session.has_key('cliente'):
             return redirect('/')
-
+        else:
+            return render(request, 'usuarios/login.html')
+    
 
     def post(self, request):
         email = request.POST.get('email')
@@ -40,6 +35,7 @@ class Login(View):
             flag = check_password(senha, cliente.senha)
             if flag:
                 request.session['cliente'] = cliente.id
+                
                 nome_sobrenome = f'{cliente.nome} {cliente.sobrenome}'
                 request.session['cliente_nome'] = nome_sobrenome
 

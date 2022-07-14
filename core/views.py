@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, DetailView
+from genericpath import exists
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.views.generic import TemplateView, DetailView, View
 
 from .models import Anel
 from carrinho.models import Carrinho , CarrinhoAneis
@@ -7,21 +8,37 @@ from carrinho.models import Carrinho , CarrinhoAneis
 # Class based View
 class IndexView(TemplateView):
     template_name: str = 'index.html'
+    return_url = None
+
 
     def get(self, request):
-        pass
-        """carrinho = request.session['carrinho']
-        
+        IndexView.return_url = request.GET.get('return_url')
+
+        context = {
+        'aneis': Anel.objects.all()
+        }
+
+        if request.session.has_key('carrinho'):
+            return render(request, "index.html", context)
+        else:
             request.session['carrinho'] = {}
-            carrinho = request.session['carrinho']
-            print(carrinho.keys)"""
+            return render(request, "index.html", context)
 
 
-    def get_context_data(self, **kwargs):
+    
+    """def get(self, request, **kwargs):
+        IndexView.return_url = request.GET.get('return_url')
         context = super(IndexView, self).get_context_data(**kwargs)
         context['aneis'] = Anel.objects.all()
-        return context
 
+        if request.session.has_key('carrinho'):
+            return render(request, "index.html")
+        else:
+            request.session['carrinho'] = {}
+            return render(request, "index.html")"""
+
+
+# request.session['carrinho']
 
 class AneisDetailView(DetailView):
     template_name: str = 'aneis.html'
