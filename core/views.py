@@ -19,26 +19,15 @@ class IndexView(TemplateView):
         }
 
         if request.session.has_key('carrinho'):
+            print(request.session['carrinho'])
             return render(request, "index.html", context)
         else:
-            request.session['carrinho'] = {}
+            request.session['carrinho'] = {2: ['5', 'anel', '156151', '5'], 3: ['5', 'anel', '156151', '5']}
+            print(request.session['carrinho'])
+            print('não')
             return render(request, "index.html", context)
 
 
-    
-    """def get(self, request, **kwargs):
-        IndexView.return_url = request.GET.get('return_url')
-        context = super(IndexView, self).get_context_data(**kwargs)
-        context['aneis'] = Anel.objects.all()
-
-        if request.session.has_key('carrinho'):
-            return render(request, "index.html")
-        else:
-            request.session['carrinho'] = {}
-            return render(request, "index.html")"""
-
-
-# request.session['carrinho']
 
 class AneisDetailView(DetailView):
     template_name: str = 'aneis.html'
@@ -54,16 +43,27 @@ class AneisDetailView(DetailView):
     def post(self, request, *args, **kwargs):
         postData = request.POST
         carrinho_id =  Carrinho.objects.get(id=5)        # postData.get('carrinho_id')
+        carrinho_id2 = carrinho_id.id
         anel_id = Anel.objects.get(id=(postData.get('anel_id')))
+        anel_id2 = anel_id.nome
         quantidade = postData.get('quantidade')
+        carrinho = request.session['carrinho']
+        print(carrinho)
+        loop = True
+        n = 1
 
-        """carrinho_cheio = ''
+        while loop == True:
+            if Anel.get_key(n, carrinho):
+                +n
+            else:
+                print(f'-->>{carrinho}')
+                loop = False
+                novo_carrinho = {n: [carrinho_id2, anel_id2, quantidade ]}
+                carrinho.update(novo_carrinho)
+                print(carrinho)
+                request.session['carrinho'] = carrinho
+                print(request.session['carrinho'])
 
-        if carrinho_cheio == '':
-            request.session['cliente'] = {}
-            carrinho = request.session['cliente']
-        """
-        
 
         carrinho_anel = CarrinhoAneis(carrinho_id=carrinho_id,
                             anel_id=anel_id,

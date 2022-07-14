@@ -44,3 +44,10 @@ class Anel(Base):
 
     def __str__(self) -> str:
         return str(self.nome)
+
+    def get_key(val, session):
+        for key, value in session.items():
+            if int(val) == key:
+                return True
+    
+        return False

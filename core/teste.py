@@ -1,21 +1,16 @@
 
 
-"""def local_func():
+bil = {}
 
-    if 'var' in locals():
-        print ('var variable exists')
-    else:
-        print ('var variable does not exist in the local namespace')
+bela = bil
 
-local_func()"""
+bela2 = {'a': '32', 'b': '35'}
 
-from numpy import var
+def get_key(val):
+    for key, value in bela2.items():
+         if val == key:
+             return key
+ 
+    return "There is no such Key"
 
-
-def local():
-    var = 1
-
-local()
-print(var)
-
-
+print(get_key('c'))
