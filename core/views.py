@@ -22,7 +22,7 @@ class IndexView(TemplateView):
             print(request.session['carrinho'])
             return render(request, "index.html", context)
         else:
-            request.session['carrinho'] = {2: ['5', 'anel', '156151', '5'], 3: ['5', 'anel', '156151', '5']}
+            request.session['carrinho'] = {}
             print(request.session['carrinho'])
             print('não')
             return render(request, "index.html", context)
@@ -42,37 +42,42 @@ class AneisDetailView(DetailView):
 
     def post(self, request, *args, **kwargs):
         postData = request.POST
-        carrinho_id =  Carrinho.objects.get(id=5)        # postData.get('carrinho_id')
-        carrinho_id2 = carrinho_id.id
-        anel_id = Anel.objects.get(id=(postData.get('anel_id')))
-        anel_id2 = anel_id.nome
+        c_carrinho =  Carrinho.objects.get(id=5)
+        c_carrinho_id = c_carrinho.id
+        anel = Anel.objects.get(id=(postData.get('anel_id')))
+        anel_id = anel.nome
+        anel_preco = Anel.real_br_money(anel.preco)
+        anel_imagem = anel.imagem
         quantidade = postData.get('quantidade')
         carrinho = request.session['carrinho']
-        print(carrinho)
+        print(f'carrinho{carrinho}')
         loop = True
         n = 1
+        pk = str(n)
 
         while loop == True:
-            if Anel.get_key(n, carrinho):
-                +n
+            if Anel.get_key(pk, carrinho):
+                n += 1
+                pk = str(n)
+                print(f'pk: {pk}')
             else:
-                print(f'-->>{carrinho}')
                 loop = False
-                novo_carrinho = {n: [carrinho_id2, anel_id2, quantidade ]}
+                novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem) ]}
                 carrinho.update(novo_carrinho)
-                print(carrinho)
                 request.session['carrinho'] = carrinho
                 print(request.session['carrinho'])
 
-
-        carrinho_anel = CarrinhoAneis(carrinho_id=carrinho_id,
-                            anel_id=anel_id,
-                            quantidade=quantidade)
         
-        print(carrinho_anel.anel_id)
+        
 
-        carrinho_anel.register()
+        # carrinho_anel.register()
+        print(request)
         return redirect('/')
+
+        
+""" carrinho_anel = CarrinhoAneis(carrinho_id=carrinho_id,
+                            anel_id=anel_id,
+                            quantidade=quantidade)"""
 
 
 

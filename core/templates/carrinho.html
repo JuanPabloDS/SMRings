@@ -1,0 +1,58 @@
+{% load static %}
+
+<li class="nav-item dropdown dropdown-menu-right">
+    <a class="nav-link dropdown-toggle dropdown-menu-right" href="../#features" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carrinho</a>
+    <div class="dropdown-menu carrinho-tam dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+      <div class="cart-container">
+        <header>
+          <h3 class="color"><i class="lni lni-cart"></i> CARRINHO</h3>            
+        </header>           
+        <div class="cart-body">           
+          <div class="cart-item"> 
+            {% if request.session.carrinho %}
+            {% for id in request.session.carrinho.values %}
+
+            <div class="cart-row"> 
+              <img src="{% static "{{ id.4 }}"  %}" alt="">
+              <p>{{ id.4 }}</p>
+                         
+              <div class="cart-row-cell desc">                          
+                <p>{{ id.1 }}</p>            
+                <p>Quantidade: {{ id.2 }}</p>           
+              </div>                     
+              <div class="cart-row-cell amount">           
+                <p>R$ {{ id.3 }}</p>
+              </div>
+              <div class="cart-row-cell pic">           
+                <a href="#"><i class="lni lni-cross-circle"></i></a>                                               
+              </div>
+                               
+            </div>
+            {% endfor %}
+          </div>
+          
+                    
+
+        </div>           
+        <footer class="footera">                                
+          <div class="totals">                     
+            <p class="total-label">Total</p>            
+            <p class="total-amount">R$15,87</p>        
+          </div>
+          <a href="">
+          <button class="button-color">Finalizar Compra</button>
+          </a>           
+        </footer>                    
+              {% else %}
+              <p>Carrinho está vazio</p>
+              <br>
+
+            </div>
+          </div>
+           
+       
+      </div>
+      {% endif %} 
+
+    </div>
+  </li>

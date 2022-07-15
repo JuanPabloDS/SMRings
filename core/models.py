@@ -47,7 +47,13 @@ class Anel(Base):
 
     def get_key(val, session):
         for key, value in session.items():
-            if int(val) == key:
+            if val == key:
                 return True
     
         return False
+
+    def real_br_money(my_value):
+        a = '{:,.2f}'.format(float(my_value))
+        b = a.replace(',','v')
+        c = b.replace('.',',')
+        return c.replace('v','.')
