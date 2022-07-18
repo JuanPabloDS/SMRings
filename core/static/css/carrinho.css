@@ -1,8 +1,12 @@
 .carrinho-tam {
 	width: 370px;
 	float: left;
-	border-radius: 35.25rem;
-	background-color: #aec827;
+	background-color: #ffffff;
+}
+
+.table-overflow {
+    max-height:400px;
+    overflow-x:auto;
 }
 
 .button-color{

@@ -8,52 +8,45 @@
           <h3 class="color"><i class="lni lni-cart"></i> CARRINHO</h3>            
         </header>           
         <div class="cart-body">           
-          <div class="cart-item"> 
+          <div class="cart-item">
+            <div class="table-overflow">
             {% if request.session.carrinho %}
             {% for id in request.session.carrinho.values %}
 
             <div class="cart-row"> 
-              <img class="img-car" src="/media/{{ id.4 }}" alt="">
-                         
+              <img class="img-car" src="/media/{{ id.4 }}" alt="">                        
               <div class="cart-row-cell desc cart-cell-p">                          
                 <p>{{ id.1 }}</p>            
                 <p class="cart-p">Quantidade: {{ id.2 }}</p>
                 <p class="cart-p price">R$ {{ id.3 }}</p>
               </div>                     
-              
               <div class="cart-row-cell pic">           
                 <a href="#"><i class="lni lni-cross-circle"></i></a>                                               
               </div>
-              </div>
-          
-              
-                               
+            </div>
+
+
 
             {% endfor %}
-
-          </div>
-          
-                    
-
-        </div>           
-        <footer class="footera">                          
-          <div class="totals">                     
-            <strong> <p class="total-label">Total:  R$ {{ request.session.total.values }}</p></strong>         
-          </div>
-          <a href="">
-          <button class="button-color">Finalizar Compra</button>
-          </a>           
-        </footer>                    
+            </div>
+            <footer class="footera">                          
+              <div class="totals">                     
+                <strong> <p class="total-label">Total:  R$ {{ request.session.total }}</p></strong>         
+              </div>
+              <a href="">
+              <button class="button-color">Finalizar Compra</button>
+              </a>           
+            </footer>
+          </div>   
+        </div> 
+      </div>                   
               {% else %}
               <p>Carrinho está vazio</p>
               <br>
-
             </div>
-          </div>
-           
-       
+          </div> 
       </div>
-      {% endif %} 
+      {% endif %}
 
     </div>
   </li>

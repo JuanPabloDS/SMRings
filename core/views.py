@@ -72,11 +72,10 @@ class AneisDetailView(DetailView):
             anel_total = preco[3]
             quantidade_tl = int(preco[2])
             totais = Anel.dolar_money(anel_total) * quantidade_tl
-            print(totais)
-            print(quantidade_tl)
             total = total + totais
             total_conv = Anel.real_br_money(total)
             request.session['total'] = total_conv
+            print(request.session['total'])
 
         
 
