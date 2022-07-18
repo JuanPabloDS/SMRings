@@ -57,3 +57,8 @@ class Anel(Base):
         b = a.replace(',','v')
         c = b.replace('.',',')
         return c.replace('v','.')
+
+    def dolar_money(my_value):
+        a = my_value.replace('.','')
+        b = a.replace(',', '.')
+        return float(b)

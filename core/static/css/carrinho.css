@@ -17,6 +17,10 @@
 
 }
 
+.img-car {
+	width: 50px;
+	height: 50px;
+}
 .cart-container {
 	border-radius: 8px;
 
@@ -39,8 +43,11 @@
 
 .cart-row {
 	display: flex;
-
+	float: left;
 	padding: 15px 0;
+	margin-right: 55px;
+	height: 120px;
+	width: 300px;
 	
 	flex-direction: row;
 
@@ -57,7 +64,7 @@
 
 .cart-row .pic {
 	flex: 1;
-	
+	float: right;
 	position: relative;
 }
 
@@ -103,7 +110,7 @@
 
 
 .cart-row .desc {
-	flex: 3;
+	flex: 15;
 }
 
 .cart-row .desc h5 {
@@ -111,9 +118,22 @@
 }
 
 .cart-row .desc p {
-	margin: 5px 0 0;
-
+	margin-top: 7px;
 	font-size: 0.75em;
+	padding-left: 12px;
+
+}
+
+.cart-cell-p {
+	flex: 15;
+
+}
+
+
+.cart-cell-p .price {
+	margin-left: 34px;
+	padding-left: 12px;
+
 }
 
 .cart-row .quant {
@@ -140,6 +160,12 @@
 
 .cart-row .amount {
 	flex: 1;
+	width: 100px;
+}
+
+.cart-p {
+	width: 100px;
+	float: left;
 }
 
 .cart-row .amount p {
@@ -193,12 +219,13 @@
 }
 
 .cart-container footer .totals p{
-	margin: 5px 0;
+	margin: 13px 0 15px 0;
+	padding-left: 27px;
+	
 }
 
 .cart-container footer .total-label {
 	flex: 1;
-
 	text-align: left;
 }
 
