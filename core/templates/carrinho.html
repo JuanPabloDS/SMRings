@@ -11,7 +11,7 @@
           <div class="cart-item">
             <div class="table-overflow">
             {% if request.session.carrinho %}
-            {% for id in request.session.carrinho.values %}
+            {% for key, id in request.session.carrinho.items %}
 
             <div class="cart-row"> 
               <img class="img-car" src="/media/{{ id.4 }}" alt="">                        
@@ -19,13 +19,15 @@
                 <p>{{ id.1 }}</p>            
                 <p class="cart-p">Quantidade: {{ id.2 }}</p>
                 <p class="cart-p price">R$ {{ id.3 }}</p>
-              </div>                     
+              </div>
+              <form action="" method="post">
+                {% csrf_token %}
+                <input type="submit" name="excluir" value="{{ key }}" />
+              </form>                      
               <div class="cart-row-cell pic">           
-                <a href="#"><i class="lni lni-cross-circle"></i></a>                                               
+                <a href="{% url 'carrinho' %}"><i class="lni lni-cross-circle"></i></a>                                               
               </div>
             </div>
-
-
 
             {% endfor %}
             </div>

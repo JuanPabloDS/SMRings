@@ -42,40 +42,51 @@ class AneisDetailView(DetailView):
 
     def post(self, request, *args, **kwargs):
         postData = request.POST
-        c_carrinho =  Carrinho.objects.get(id=5)
-        c_carrinho_id = c_carrinho.id
-        anel = Anel.objects.get(id=(postData.get('anel_id')))
-        anel_id = anel.nome
-        anel_preco = Anel.real_br_money(anel.preco)
-        anel_imagem = anel.imagem
-        quantidade = postData.get('quantidade')
-        carrinho = request.session['carrinho']
-        loop = True
-        n = 1
-        pk = str(n)
-        total = 0
 
-        while loop == True:
-            if Anel.get_key(pk, carrinho):
-                n += 1
-                pk = str(n)
-                print(f'pk: {pk}')
-            else:
-                loop = False
-                novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem) ]}
-                carrinho.update(novo_carrinho)
-                request.session['carrinho'] = carrinho
-                print(request.session['carrinho'])
+        if postData.get('excluir'):
+            id_ex = postData.get('excluir')
+            inter = int(id_ex)
+            print(inter)
+            carrinho_new =  request.session['carrinho'].pop(f'{id_ex}')
+            print(id_ex)
+            print(f'sss: {carrinho_new}')
+            request.session['carrinho'] = carrinho_new
+        else:
+            print('Funciona')
+            c_carrinho =  Carrinho.objects.get(id=1)
+            c_carrinho_id = c_carrinho.id
+            anel = Anel.objects.get(id=(postData.get('anel_id')))
+            anel_id = anel.nome
+            anel_preco = Anel.real_br_money(anel.preco)
+            anel_imagem = anel.imagem
+            quantidade = postData.get('quantidade')
+            carrinho = request.session['carrinho']
+            loop = True
+            n = 1
+            pk = str(n)
+            total = 0
+
+            while loop == True:
+                if Anel.get_key(pk, carrinho):
+                    n += 1
+                    pk = str(n)
+                    print(f'pk: {pk}')
+                else:
+                    loop = False
+                    novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem) ]}
+                    carrinho.update(novo_carrinho)
+                    request.session['carrinho'] = carrinho
+                    print(request.session['carrinho'])
 
 
-        for preco in request.session['carrinho'].values():
-            anel_total = preco[3]
-            quantidade_tl = int(preco[2])
-            totais = Anel.dolar_money(anel_total) * quantidade_tl
-            total = total + totais
-            total_conv = Anel.real_br_money(total)
-            request.session['total'] = total_conv
-            print(request.session['total'])
+            for preco in request.session['carrinho'].values():
+                anel_total = preco[3]
+                quantidade_tl = int(preco[2])
+                totais = Anel.dolar_money(anel_total) * quantidade_tl
+                total = total + totais
+                total_conv = Anel.real_br_money(total)
+                request.session['total'] = total_conv
+                print(request.session['total'])
 
         
 

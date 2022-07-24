@@ -7,7 +7,7 @@ from .models import Carrinho, CarrinhoAneis
 
 @admin.register(Carrinho)
 class CarrinhoAdmin(admin.ModelAdmin):
-    list_display = ('cliente', 'finalizado', 'criado', 'modificado')
+    list_display = ('id', 'cliente', 'finalizado', 'criado', 'modificado')
 
 
 @admin.register(CarrinhoAneis)

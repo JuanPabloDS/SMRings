@@ -1,9 +1,9 @@
 from ast import pattern
 from django.urls import path
-from .views import CarrinhoView
+from .views import CarrinhoView, logout
 
 
 urlpatterns = [
-    path('carrinho', CarrinhoView.as_view(), name='carrinho'),
+    path('carrinho', logout, name='carrinho'),
 
 ]
