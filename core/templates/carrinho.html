@@ -20,12 +20,15 @@
                 <p class="cart-p">Quantidade: {{ id.2 }}</p>
                 <p class="cart-p price">R$ {{ id.3 }}</p>
               </div>
-              <form action="" method="post">
-                {% csrf_token %}
-                <input type="submit" name="excluir" value="{{ key }}" />
-              </form>                      
-              <div class="cart-row-cell pic">           
-                <a href="{% url 'carrinho' %}"><i class="lni lni-cross-circle"></i></a>                                               
+                <a href="{% url 'carrinho' key %}">
+                  <i class="lni lni-cross-circle"></i>
+                </a>                   
+              <div class="cart-row-cell pic">
+                <form action="POST">
+                <a>      
+                <i class="lni lni-cross-circle"></i>
+                </a>
+                </form>                                                 
               </div>
             </div>
 

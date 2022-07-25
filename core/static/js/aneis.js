@@ -5,3 +5,7 @@ function tamanho_aneis() {
         n++;
      } 
 }
+
+function remove_item() {
+     sessionStorage.removeItem('carrinho', '1')
+}

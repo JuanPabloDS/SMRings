@@ -10,9 +10,11 @@ class IndexView(TemplateView):
     template_name: str = 'index.html'
     return_url = None
 
-
     def get(self, request):
         IndexView.return_url = request.GET.get('return_url')
+
+        # Redirect para o carrinho
+        request.session['redirect'] = 'index'
 
         context = {
         'aneis': Anel.objects.all()
@@ -35,8 +37,17 @@ class AneisDetailView(DetailView):
     queryset = Anel.objects.all()
 
     def get_object(self):
+
+        # Redirect para o carrinho
+        # request.session['redirect'] = 'aneis'
+
         obj = super().get_object()
         return obj
+    
+    def get(request, pk):
+        request.session['redirect'] = 'aneis'
+
+
 
 
 
@@ -53,7 +64,7 @@ class AneisDetailView(DetailView):
             request.session['carrinho'] = carrinho_new
         else:
             print('Funciona')
-            c_carrinho =  Carrinho.objects.get(id=1)
+            c_carrinho =  Carrinho.objects.get(id=5)
             c_carrinho_id = c_carrinho.id
             anel = Anel.objects.get(id=(postData.get('anel_id')))
             anel_id = anel.nome

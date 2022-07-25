@@ -4,6 +4,6 @@ from .views import CarrinhoView, logout
 
 
 urlpatterns = [
-    path('carrinho', logout, name='carrinho'),
+    path('carrinho/<int:pk>', logout, name='carrinho'),
 
 ]
