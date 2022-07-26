@@ -19,6 +19,9 @@ class Login(View):
     def get(self, request):
         Login.return_url = request.GET.get('return_url')
 
+        # Redirect para o carrinho
+        request.session['redirect'] = 'login'
+
         if request.session.has_key('cliente'):
             return redirect('/')
         else:
@@ -69,6 +72,10 @@ def logout(request):
 
 class Signup (View):
     def get(self, request):
+
+        # Redirect para o carrinho
+        request.session['redirect'] = 'cadastro'
+
         return render(request, 'usuarios/cadastro.html')
   
     def post(self, request):

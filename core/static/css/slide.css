@@ -1,0 +1,11 @@
+
+.slide img {
+  width: 100%;
+  float: left;
+position: relative;
+padding-top: 50px;
+}
+
+.carousel-padding {
+    padding-top: 0px;
+}

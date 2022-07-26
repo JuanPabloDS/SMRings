@@ -36,18 +36,26 @@ class AneisDetailView(DetailView):
 
     queryset = Anel.objects.all()
 
-    def get_object(self):
+    """def get_object(self):
 
         # Redirect para o carrinho
         # request.session['redirect'] = 'aneis'
 
         obj = super().get_object()
-        return obj
+        return obj"""
     
-    def get(request, pk):
-        request.session['redirect'] = 'aneis'
+    def get(self, request, pk):
+
+        # Redirect para o carrinho
+        request.session['redirect'] = f'../aneis/{pk}'
+
+        anel = Anel.objects.get(id=pk)
 
 
+        context = {
+            'anel' : anel
+            }
+        return render(request, 'aneis.html', context)
 
 
 
