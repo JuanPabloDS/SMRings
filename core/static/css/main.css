@@ -90,6 +90,17 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   position: relative;
 }
 
+.center {
+  text-align: center;
+}
+
+.center span {
+  padding-top: 50px;
+  top: 7px;
+  left: 0;
+  width: 100%;
+}
+
 .section-header .section-title {
   font-size: 36px;
   margin-bottom: 20px;

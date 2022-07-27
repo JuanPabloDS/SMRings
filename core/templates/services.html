@@ -6,8 +6,8 @@
             <p class="section-subtitle">Escolha o que melhor combina com você!</p>
           </div>
           <div class="row">
-  
-            {% for anel in aneis %}
+
+            {% for anel in contacts.object_list %}
             <div class="col-lg-4 col-md-6 col-xs-12">
               <div class="item-boxes services-item wow anel-margin" data-wow-delay="0.2s">
                 <div class="icon color-1">
@@ -23,7 +23,25 @@
                 </a>
               </div>
             </div>
+
             {% endfor %}
+
+            <div class="pagination container text-center center">
+                <span class="step-links">
+                    {% if contacts.has_previous %}
+                        <a href="?page={{ contacts.previous_page_number }}#services">anterior</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Página {{ contacts.number }} de {{ contacts.paginator.num_pages }}.
+                    </span>
+
+                    {% if contacts.has_next %}
+                        <a href="?page={{ contacts.next_page_number }}#services">próxima</a>
+                    {% endif %}
+                </span>
+            </div>
+          
             
           </div>
         </div>

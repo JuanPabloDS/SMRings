@@ -4,9 +4,5 @@
 
 
 
-var = '3.500,00'
-
-va2 = var.replace('.','')
-va3 = va2.replace(',', '.')
-
-print(float(va3))
+for x in range(22, 23, 25):
+    print(x)

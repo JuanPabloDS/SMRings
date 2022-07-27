@@ -1,9 +1,11 @@
 from genericpath import exists
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic import TemplateView, DetailView, View
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 from .models import Anel
 from carrinho.models import Carrinho , CarrinhoAneis
+
 
 # Class based View
 class IndexView(TemplateView):
@@ -16,8 +18,31 @@ class IndexView(TemplateView):
         # Redirect para o carrinho
         request.session['redirect'] = 'index'
 
+        
+#-----------------------------------------------------------#
+        # Paginação
+
+        contact_list = Anel.objects.all()
+        paginator = Paginator(contact_list, 6) # Mostra 6 contatos por página
+
+        # Make sure page request is an int. If not, deliver first page.
+        # Esteja certo de que o `page request` é um inteiro. Se não, mostre a primeira página.
+        try:
+            page = int(request.GET.get('page', '1'))
+        except ValueError:
+            page = 1
+
+        # Se o page request (9999) está fora da lista, mostre a última página.
+        try:
+            contacts = paginator.page(page)
+        except (EmptyPage, InvalidPage):
+            contacts = paginator.page(paginator.num_pages)
+
+# ----------------------------------------------------------#
+
         context = {
-        'aneis': Anel.objects.all()
+            'aneis': Anel.objects.all(),
+            'contacts': contacts
         }
 
         if request.session.has_key('carrinho'):
@@ -28,6 +53,11 @@ class IndexView(TemplateView):
             print(request.session['carrinho'])
             print('não')
             return render(request, "index.html", context)
+
+    def listing(request):
+        
+
+        return render('index.html',)
 
 
 
