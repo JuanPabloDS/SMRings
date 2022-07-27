@@ -90,6 +90,8 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   position: relative;
 }
 
+
+
 .center {
   text-align: center;
 }
@@ -1194,6 +1196,19 @@ button:focus {
   -o-transition: all 0.3s ease-in-out;
 }
 
+.services-item-carrinho {
+  padding: 30px 15px;
+  background: #fff;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
 .services-item .icon {
   margin-bottom: 20px;
 }
@@ -1268,6 +1283,11 @@ button:focus {
 
 .services-item:hover {
   box-shadow: 0px 10px 50px 0px rgba(84, 110, 122, 0.35);
+}
+
+.services-item-carrinho:hover {
+
+  box-shadow: 0px 100px 50px 0px rgba(84, 110, 122, 0.35);
 }
 
 .services-item:hover .icon i {

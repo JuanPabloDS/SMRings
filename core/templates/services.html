@@ -18,15 +18,17 @@
                 </div>
                 <p class="cor-preco"><script>real_br_money("{{ anel.preco }}")</script></p>
                 <br>
+                <div class="" >
                 <a href="{% url 'aneis' anel.id %}">
-                  <button type="button" class="btn services-item wow fadeInDown visualizar"><i class="lni lni-cart"></i>  Visualizar</button>
+                  <button type="button" class="btn services-item-carrinho wow fadeInDown visualizar services-item " ><i class="lni lni-cart"></i>  Visualizar</button>
                 </a>
+                </div>
               </div>
             </div>
 
             {% endfor %}
 
-            <div class="pagination container text-center center">
+            <div class="pagination container text-center center ">
                 <span class="step-links">
                     {% if contacts.has_previous %}
                         <a href="?page={{ contacts.previous_page_number }}#services">anterior</a>
