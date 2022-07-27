@@ -16,7 +16,7 @@
                 <div class="div-anel">
                   <h4>{{ anel.nome }}</h4>
                 </div>
-                <p class="cor-preco">R$ {{ anel.preco }}</p>
+                <p class="cor-preco"><script>real_br_money("{{ anel.preco }}")</script></p>
                 <br>
                 <a href="{% url 'aneis' anel.id %}">
                   <button type="button" class="btn services-item wow fadeInDown visualizar"><i class="lni lni-cart"></i>  Visualizar</button>
