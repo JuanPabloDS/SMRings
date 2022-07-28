@@ -1,0 +1,66 @@
+.box {
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    padding-top: 3px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.form {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    width: 0px;
+
+}
+
+.form.actived {
+    width: 250px;
+}
+
+.form .fm-inp {
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 100px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    padding-left: 10px;
+
+}
+
+.form .fm-inp.actived {
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 100px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    border: 1px solid rgb(249, 119, 148) ;
+    padding-left: 10px;
+
+}
+
+.form .fm-inp:focus {
+    outline: none;
+    border: 1px solid rgb(249, 119, 148) ;
+    padding-left: 10px;
+    font-size: 14px;
+
+}
+
+.btn-search {
+    display: block;
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+    padding-top: 5px;
+
+}
+
+.btn-search .fas {
+    font-size: 16px;
+    font-weight: 300 ;
+}

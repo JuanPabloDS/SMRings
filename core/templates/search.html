@@ -27,23 +27,7 @@
             </div>
 
             {% endfor %}
-
-            <div class="pagination container text-center center ">
-                <span class="step-links">
-                    {% if aneis.has_previous %}
-                        <a href="?page={{ aneis.previous_page_number }}#services">anterior</a>
-                    {% endif %}
-
-                    <span class="current">
-                        Página {{ aneis.number }} de {{ aneis.paginator.num_pages }}.
-                    </span>
-
-                    {% if aneis.has_next %}
-                        <a href="?page={{ aneis.next_page_number }}#services">próxima</a>
-                    {% endif %}
-                </span>
-            </div>
-          
+            
             
           </div>
         </div>

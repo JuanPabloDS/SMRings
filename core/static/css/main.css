@@ -1007,39 +1007,52 @@ button:focus {
 }
 
 /* ==========================================================================
- Video promo Style
+Search
  ========================================================================== */
-.video-promo {
-  background: url(../img/bg/video.jpg);
+.search {
+  height: 10px;
+  margin-right: -30px;
+}
+
+.search input {
+
+  width: 251px;
+  font-size: 10px;
+  font-weight: 100;
   position: relative;
+  float: left;
+  height: 3px;
 }
 
-.video-promo .video-promo-content {
-  color: #fff;
+.search button {
+  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 13px;
+  position: relative;
+  float: left;
+  margin-bottom: 20px;
+  background-color: rgb(239, 117, 142);
+  
 }
 
-.video-promo .video-promo-content .video-popup {
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  text-align: center;
-  border: 3px solid #fff;
-  color: #fff;
-  border-radius: 50%;
-  display: inline-block;
-  font-size: 26px;
+.search p {
+  text-transform: none;
+  color: #ffffff;
+}
+.search-a {
+  padding-top: 1px;
+}
+.search-a a {
+  padding-top: 50px;
 }
 
-.video-promo .video-promo-content h2 {
-  margin-top: 30px;
-  color: #fff;
-  font-size: 30px;
-  text-transform: uppercase;
+.search-lup {
+  padding-top: 8px;
+  font-size: 15px;
 }
 
-.video-promo .video-promo-content p {
-  color: #fff;
-}
+
 
 /* ==========================================================================
    Portfolio Section

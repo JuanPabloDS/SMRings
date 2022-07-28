@@ -1,7 +1,8 @@
 from genericpath import exists
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from django.views.generic import TemplateView, DetailView, View
+from django.views.generic import TemplateView, DetailView, View, ListView
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.db.models import Q
 
 from .models import Anel
 from carrinho.models import Carrinho , CarrinhoAneis
@@ -12,18 +13,38 @@ class IndexView(TemplateView):
     template_name: str = 'index.html'
     return_url = None
 
+    def get_queryset(self):
+        query = self.request.GET.get("search")
+        object_list = Anel.objects.filter(
+            Q(nome__icontain=query)
+        )
+        return object_list
+
     def get(self, request):
         IndexView.return_url = request.GET.get('return_url')
 
         # Redirect para o carrinho
         request.session['redirect'] = 'index'
+        request.session['index'] = 'service'
 
-        
+        if self.request.GET.get("search"):
+            query = self.request.GET.get("search")
+            values = Anel.objects.filter(
+                Q(nome__icontains=query)
+            )
+        else:
+            print('foi')
+            values = Anel.objects.all()
+
+        if self.request.GET.get("page"):
+            pass
+        else:
+            pass
 #-----------------------------------------------------------#
         # Paginação
 
-        contact_list = Anel.objects.all()
-        paginator = Paginator(contact_list, 6) # Mostra 6 contatos por página
+        
+        paginator = Paginator(values, 5) # Mostra 6 contatos por página
 
         # Make sure page request is an int. If not, deliver first page.
         # Esteja certo de que o `page request` é um inteiro. Se não, mostre a primeira página.
@@ -34,15 +55,16 @@ class IndexView(TemplateView):
 
         # Se o page request (9999) está fora da lista, mostre a última página.
         try:
-            contacts = paginator.page(page)
+            aneis = paginator.page(page)
         except (EmptyPage, InvalidPage):
-            contacts = paginator.page(paginator.num_pages)
+            aneis = paginator.page(paginator.num_pages)
 
 # ----------------------------------------------------------#
 
+
+
         context = {
-            'aneis': Anel.objects.all(),
-            'contacts': contacts
+            'aneis': aneis,
         }
 
         if request.session.has_key('carrinho'):
@@ -55,9 +77,20 @@ class IndexView(TemplateView):
             return render(request, "index.html", context)
 
     def listing(request):
-        
 
         return render('index.html',)
+
+class SearchResultsView(ListView):
+    
+    template_name = "index.html"
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list = Anel.objects.filter(
+            Q(nome__icontain=query)
+        )
+        return object_list
+
 
 
 

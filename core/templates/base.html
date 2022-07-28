@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
     <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
     <link rel="stylesheet" href="{% static 'css/slide.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+
 
     <!-- JavaScript -->
     <script src="{% static 'js/aneis.js' %}"></script>
@@ -46,6 +48,27 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
+              <li class="nav-item" id="search-change">
+
+                <div class="box">
+                  <form action="{% url 'index' %}#services" class="form" method="get">
+                      <input type="search" name="search" placeholder="Pesquisar" class="fm-inp">
+                  </form>
+                  <button class="btn-search nav-link page-scroll" >
+                    <i class="fas lni lni-search search-lup"></i>
+                  </button>
+                </div>
+
+
+
+                <!--<li class="nav-item search-a">
+                  <a class="nav-link page-scroll" href=""><i class="lni lni-search search-lup"></i></a>
+                </li>-->
+                <!--<form class="form-inline search">
+                  <input class="form-control mr-sm-2 " type="search" placeholder="..." aria-label="Pesquisar">
+                  <button class="btn  " type="submit"><p>Pesquisar</p></button>
+                </form>-->
+              </li>
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="{% url 'index' %}">Home</a>
               </li>
@@ -83,7 +106,23 @@
     {% block content %} {% endblock %}  
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    
+    <script>
+      const form = document.querySelector(".form");
+      const search = document.querySelector(".fm-inp");
+      const btn = document.querySelector(".btn-search");
+      var url = "{% url 'index' %}"
+
+
+      btn.addEventListener("click", function() {
+          if (search.value.length > 0) {
+              window.location = " " + url + "#services";
+          }else {
+              form.classList.toggle("actived");
+              search.classList.toggle("actived");
+          }
+      });
+    </script>
+    <script src="{% static 'js/searcha.js' %}"></script>
     <script src="{% static 'js/jquery-min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
