@@ -5,7 +5,21 @@
             <h2 class="section-title">Anéis</h2>
             <p class="section-subtitle">Escolha o que melhor combina com você!</p>
           </div>
+          {% if request.session.mensagem != ''  %}
+
+          <strong>{{ request.session.mensagem.0 }}<strong>
+          {% endif %}
+          
+          {% if request.session.mensagem.1 == 'vazio' %}
+          <div class="n-resultado">
+            <p>Nenhum resultado encontrado.</p>
+          </div>
+          {% endif %}
+
+          <br>
           <div class="row">
+
+
 
             {% for anel in aneis %}
             <div class="col-lg-4 col-md-6 col-xs-12">

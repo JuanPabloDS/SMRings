@@ -12,6 +12,32 @@
 	line-height: 0;
 	height: 0;
 }
+
+.cor-carousel h2 {
+	text-shadow: 1px 1px rgb(192, 189, 25);
+}
+
+.cor-carousel h4 {
+	color: rgb(249, 119, 148);
+	max-width: 469px;
+	padding-left: 10px;
+	padding-top: 5px;
+	height: 30px;
+	border-radius: 15px;
+	text-shadow: 1px 1px rgb(192, 189, 25);
+}
+
+.cor-carousel-p h2 {
+	text-shadow: 1px 1px #9299A0;
+}
+
+.cor-carousel-p h4 {
+	padding-top: 80px;
+	text-shadow: 1px 1px #9299A0;
+}
+
+
+
 /* display none until init */
 .owl-carousel{
 	display: none;

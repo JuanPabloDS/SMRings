@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic import TemplateView, DetailView, View, ListView
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.db.models import Q
+from django.contrib import messages
+from numpy import empty
 
 from .models import Anel
 from carrinho.models import Carrinho , CarrinhoAneis
@@ -12,29 +14,35 @@ from carrinho.models import Carrinho , CarrinhoAneis
 class IndexView(TemplateView):
     template_name: str = 'index.html'
     return_url = None
-
-    def get_queryset(self):
-        query = self.request.GET.get("search")
-        object_list = Anel.objects.filter(
-            Q(nome__icontain=query)
-        )
-        return object_list
+    
 
     def get(self, request):
         IndexView.return_url = request.GET.get('return_url')
+        mensagem = ''
 
         # Redirect para o carrinho
         request.session['redirect'] = 'index'
-        request.session['index'] = 'service'
+        request.session['mensagem'] = ''
+        
 
         if self.request.GET.get("search"):
+            search = self.request.GET.get("search")
+            request.session['mensagem'] = f'Resultado para pesquisa: {search.title()}'
             query = self.request.GET.get("search")
             values = Anel.objects.filter(
                 Q(nome__icontains=query)
             )
+            mensagem = request.session['mensagem']
+
+            if len(values) == 0:
+                request.session['mensagem'] = [mensagem, 'vazio']
+            else:
+                request.session['mensagem'] = [mensagem, '']
         else:
             print('foi')
             values = Anel.objects.all()
+
+        print(f'Pega -> {mensagem}')
 
         if self.request.GET.get("page"):
             pass
@@ -60,11 +68,12 @@ class IndexView(TemplateView):
             aneis = paginator.page(paginator.num_pages)
 
 # ----------------------------------------------------------#
-
-
+        empty = []
 
         context = {
             'aneis': aneis,
+            'mensagem': mensagem,
+            'empty': empty,
         }
 
         if request.session.has_key('carrinho'):

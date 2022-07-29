@@ -71,6 +71,19 @@
     height: 100px;
 }
 
+.n-resultado {
+    height: 300px;
+    max-width: 100%;
+    text-align:center;
+    padding-top: 100px;
+}
+
+.n-resultado p {
+    font-size: 35px;
+    align-items: center;
+    color: #f97794;
+}   
+
 
 /* Cadastrar aneis */
 
