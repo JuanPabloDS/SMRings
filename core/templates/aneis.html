@@ -3,7 +3,7 @@
 {% block content %}
 
     <!-- Services Section Start -->
-    <section id="services" class="section wow fadeInUp" data-wow-delay="0.3s" >
+    <section id="services" class="section wow fadeInUp pg" data-wow-delay="0.3s" >
         <div class="container">
         <div class="section-header">          
             <h2 class="section-title">Comprar</h2>
@@ -11,7 +11,8 @@
         </div>
         <form method="POST">
           {% csrf_token %}
-          <div class="row" data-wow-delay="0.2s">
+          <div class="container container-padding">
+          <div class="row container container-anel  wow ">
               <input style="visibility:hidden" type="text" name="anel_id" required id="anel_id" value="{{ anel.id }}" >
               <div class="container">
                 <div class="div-tam section-header" data-wow-delay="0.2s">
@@ -59,9 +60,11 @@
                   </div>
                 </div> 
               </div>
+              <br>
               <div class="submit-button container section-header">
-                <button class="btn btn-common compra" id="form-submit" type="submit">Comprar</button>
+                <button class="btn btn-common compra" id="form-submit" type="submit">Adicionar ao carrinho</button>
               <div id="msgSubmit" class="h3 text-center hidden"></div>
+          </div>
           </div>
         </form>
         </div>
