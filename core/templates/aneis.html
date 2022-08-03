@@ -14,27 +14,23 @@
           <div class="container container-padding">
           <div class="row container container-anel  wow ">
               <input style="visibility:hidden" type="text" name="anel_id" required id="anel_id" value="{{ anel.id }}" >
-              <div class="container">
-                <div class="div-tam section-header" data-wow-delay="0.2s">
-                  <img src="{{ anel.imagem.url }}" alt="" class="img-aneis">
+              <div class="container responsive-div">
+                <div class="section-header img-responsivo" data-wow-delay="0.2s">
+                  <img src="{{ anel.imagem.url }}" alt="" class="">
                 </div>
-                <div class="div-tam">
-                  <br>
+                <div class="responsive-margin">
                   <div>
-                    <p class="aneis-tam">{{ anel.nome }}</p>
+                    <p class="responsive-nome">{{ anel.nome }}</p>
                   </div>
                   <br>
-                  <div>
-                    <p class="preco">Apartir de R$ {{ anel.preco }}</p>
+                  <div class="responsive-preco">
+                    <p class="preco-p">A PARTIR DE </p><p class="preco-pa"> R$ {{ anel.preco }}</p>
                   </div>
                   <br><br>
-                  <div>
-                    <p class="tamanho">Tamanho</p>
-                  </div>
-                  <br/>
-                  <div>
-                    <select class="form-select form-select-sm form-control select-tam" aria-label=".form-select-sm example" size="1">
-                      <option selected id="select-loop">Selecionar tamanho</option>
+                  <div class="responsive-tamanho">
+                    <p class="">Tamanho:</p>
+                    <select class="form-select form-select-sm responsive-select" aria-label=".form-select-sm example" size="1">
+                      <option selected id="select-loop">Selecionar</option>
 
                       {% for t in anel.tamanho.all %}
                         <option value="">{{ t.tamanho }}</option>
@@ -45,9 +41,9 @@
                   <br>
                     <div>
                       <label>
-                        <span data-hook="number-input-spinner-title" >Quantidade</span>
-                        <div>
-                          <input type="number" name="quantidade" required id="quantidade" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" max="99999" min="1"/>
+                        <span data-hook="number-input-spinner-title" >Quantidade:</span>
+                        <div class="responsive-select-loop">
+                          <input class="responsive-select-loop" type="number" name="quantidade" required id="quantidade" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" max="99999" min="1"/>
                           <div aria-hidden="true">
                             <span data-hook="number-input-spinner-up-arrow">
                             </span>
