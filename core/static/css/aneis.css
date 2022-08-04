@@ -95,8 +95,8 @@
 }
 
 .container-padding {
-    padding-left: 22% ;
-    padding-right: 10% ;
+    padding-left: 16% ;
+    padding-right: 20% ;
 
 }
 
@@ -111,18 +111,17 @@
 
 
 .responsive-div {
-    float: right;
     position: relative;
+    margin-bottom: 20px;
 
 
 }
 
 .responsive-div img{
     max-width: 300px;
-    max-height: 400px;
+    max-height: 300px;
 
     float: left;
-    position: relative;
     border-bottom-width: 1px;
     border-top-width: 1px;
     border-right-width: 1px;
@@ -130,22 +129,23 @@
     border-style: solid;
     border-color: #d6d6d6;
 
+
 }
 
 .img-responsivo{
-    max-width: 300px;
-    height: 400px;
+    width: 350px;
+    float: left;
+    margin-right: 10px;
 
 }
 
-.responsive-margin{
-    margin-top: -37px;
-    position: relative;
-
+.margin-label {
+    margin-bottom: 30px;
 }
 
 
-.responsive-nome {
+
+.responsive-nome p {
     font-size: 30px;
     word-spacing: 2px;
     line-height: 35px;

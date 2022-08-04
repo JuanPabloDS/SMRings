@@ -5,17 +5,18 @@
 
 
 
-car = 3500.10
 
-valor = round(car)
-valor = str(car).replace('.', ',')
 
-print(valor)
+try:
+    pass
 
-def real_br_money_mask(my_value):
-    a = '{:,.2f}'.format(float(my_value))
-    b = a.replace(',','v')
-    c = b.replace('.',',')
-    return type(c.replace('v','.'))
+except:
+    pass
 
-print(real_br_money_mask(3500.10))
+cont = 1
+
+teste_tamanho = int(1)
+lista = [num for num in range(1, 33)]
+for n in lista:
+    if teste_tamanho == n:
+        print('func')

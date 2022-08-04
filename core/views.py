@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.contrib import messages
 from numpy import empty
 
-from .models import Anel
+from .models import Anel, Tamanho
 from carrinho.models import Carrinho , CarrinhoAneis
 
 
@@ -151,11 +151,40 @@ class AneisDetailView(DetailView):
             anel_preco = Anel.real_br_money(anel.preco)
             anel_imagem = anel.imagem
             quantidade = postData.get('quantidade')
+            tamanho = postData.get('tamanho')
+            print(f'----> {tamanho}')
             carrinho = request.session['carrinho']
             loop = True
             n = 1
             pk = str(n)
             total = 0
+
+            #------------------------------------------#
+            """Verifica se o Tamanho e quantidade possuem valores validos"""
+
+            
+            
+
+            try:
+                teste_tamanho = int(tamanho)
+                listar = [num for num in anel.tamanho.all()]
+                lista2 = ([str(num) for num in listar])
+
+                for num in lista2:
+                    if teste_tamanho == int(num):
+                        print('func')
+                    
+                
+
+
+            except:
+                return redirect('erro')
+
+
+
+
+            #-------------------------------------------#
+
 
             while loop == True:
                 if Anel.get_key(pk, carrinho):
@@ -164,7 +193,7 @@ class AneisDetailView(DetailView):
                     print(f'pk: {pk}')
                 else:
                     loop = False
-                    novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem) ]}
+                    novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem), tamanho ]}
                     carrinho.update(novo_carrinho)
                     request.session['carrinho'] = carrinho
                     print(request.session['carrinho'])
@@ -184,12 +213,8 @@ class AneisDetailView(DetailView):
 
         return redirect('/')
 
-        
-""" carrinho_anel = CarrinhoAneis(carrinho_id=carrinho_id,
-                            anel_id=anel_id,
-                            quantidade=quantidade)"""
+    
+class ErroView(TemplateView):
+    template_name: str = 'erro.html'
+    return_url = None
 
-
-
-
-#  carrinho_anel = CarrinhoAneis(5, carrinho.id, anel.id, quantidade=3)

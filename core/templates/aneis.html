@@ -18,28 +18,31 @@
                 <div class="section-header img-responsivo" data-wow-delay="0.2s">
                   <img src="{{ anel.imagem.url }}" alt="" class="">
                 </div>
+                <div class="separator">
+
+                </div>
                 <div class="responsive-margin">
-                  <div>
+                  <div class="responsive-nome">
                     <p class="responsive-nome">{{ anel.nome }}</p>
                   </div>
                   <br>
                   <div class="responsive-preco">
-                    <p class="preco-p">A PARTIR DE </p><p class="preco-pa"> R$ {{ anel.preco }}</p>
+                    <p class="preco-p">A PARTIR DE </p><p class="preco-pa"><script>real_br_money("{{ anel.preco }}")</script></p>
                   </div>
                   <br><br>
                   <div class="responsive-tamanho">
                     <p class="">Tamanho:</p>
-                    <select class="form-select form-select-sm responsive-select" aria-label=".form-select-sm example" size="1">
-                      <option selected id="select-loop">Selecionar</option>
+                    <select name="tamanho" required id="tamanho" class="form-select form-select-sm responsive-select" aria-label=".form-select-sm example" size="1">
+                      <option selected value="">Selecionar</option>
 
                       {% for t in anel.tamanho.all %}
-                        <option value="">{{ t.tamanho }}</option>
+                        <option value="{{ t.tamanho }}">{{ t.tamanho }}</option>
                       {% endfor %}
 
                     </select>
                   </div>
                   <br>
-                    <div>
+                    <div class="margin-label">
                       <label>
                         <span data-hook="number-input-spinner-title" >Quantidade:</span>
                         <div class="responsive-select-loop">
@@ -53,7 +56,6 @@
                         </div>
                       </label>
                     </div>
-                  </div>
                 </div> 
               </div>
               <br>
