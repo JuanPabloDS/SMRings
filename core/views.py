@@ -162,20 +162,21 @@ class AneisDetailView(DetailView):
             #------------------------------------------#
             """Verifica se o Tamanho e quantidade possuem valores validos"""
 
-            
-            
-
             try:
+                teste_quantidade = int(quantidade)
                 teste_tamanho = int(tamanho)
+                print('----- -----')
+                print(teste_quantidade)
                 listar = [num for num in anel.tamanho.all()]
                 lista2 = ([str(num) for num in listar])
 
                 for num in lista2:
-                    if teste_tamanho == int(num):
-                        print('func')
                     
-                
+                    if teste_tamanho == int(num):
+                        erro = False
 
+                if erro == True or teste_quantidade > 50:
+                    return redirect('erro')
 
             except:
                 return redirect('erro')
