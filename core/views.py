@@ -23,6 +23,17 @@ class IndexView(TemplateView):
         # Redirect para o carrinho
         request.session['redirect'] = 'index'
         request.session['mensagem'] = ''
+
+        #------------------------#
+        # Exibir mensagem de anel enviado ao carrinho
+
+        if request.session.has_key('mensagem_carrinho_salvo'):
+            messages.success(request, 'Enviado com sucesso para o carrinho!' )
+            request.session.pop('mensagem_carrinho_salvo')
+            
+            
+
+        #------------------------#
         
 
         if self.request.GET.get("search"):
@@ -108,14 +119,6 @@ class AneisDetailView(DetailView):
 
     queryset = Anel.objects.all()
 
-    """def get_object(self):
-
-        # Redirect para o carrinho
-        # request.session['redirect'] = 'aneis'
-
-        obj = super().get_object()
-        return obj"""
-    
     def get(self, request, pk):
 
         # Redirect para o carrinho
@@ -198,6 +201,14 @@ class AneisDetailView(DetailView):
                     carrinho.update(novo_carrinho)
                     request.session['carrinho'] = carrinho
                     print(request.session['carrinho'])
+
+                    #-----------------------------#
+                    # Exindo mensagem de anel salvo no carrinho
+
+                    request.session['mensagem_carrinho_salvo'] = 'Anel adicionado ao carrinho'
+
+                    #------------------------------#
+
 
 
             for preco in request.session['carrinho'].values():

@@ -216,15 +216,29 @@
     margin-top: 7px;
     height: 25px;
     width: 50px;
-    background: #fff;
     color: #546E7A;
     font-size: 15px;
-    border-radius: 5px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.responsive-select-loop input {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+
+.total {
+    margin-bottom: 25px;
+}
+
+.total strong {
+    font-size: 25px;
+    
+}
+
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
 
 
 /* Cadastrar aneis */

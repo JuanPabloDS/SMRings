@@ -46,7 +46,7 @@
                       <label>
                         <span data-hook="number-input-spinner-title" >Quantidade:</span>
                         <div class="responsive-select-loop">
-                          <input class="responsive-select-loop" pattern="[0-5]{1}" type="number" name="quantidade" required id="quantidade" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" max="99999" min="1"/>
+                          <input class="responsive-select-loop" onchange="total()" min="1" max="50" type="number" name="quantidade" required id="quantidade" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" />
                           <div aria-hidden="true">
                             <span data-hook="number-input-spinner-up-arrow">
                             </span>
@@ -59,8 +59,12 @@
                 </div> 
               </div>
               <br>
+              <div class="total">
+                <strong>Total:  <span id="valor_total" name="valor_total"><script>real_br_money("{{ anel.preco }}")</script></span></strong>
+
+              </div>
               <div class="submit-button container section-header">
-                <button class="btn btn-common compra" id="form-submit" type="submit">Adicionar ao carrinho</button>
+                <button class="btn btn-common compra" value="{{ anel.preco }}" id="form-submit" type="submit">Adicionar ao carrinho</button>
               <div id="msgSubmit" class="h3 text-center hidden"></div>
           </div>
           </div>

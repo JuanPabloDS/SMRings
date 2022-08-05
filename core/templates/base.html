@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -39,8 +40,12 @@
   
   <body>
     <!-- Header Section Start -->
-    <header id="slider-area">  
+    <div class="div-inicio" ></div>
+    {% bootstrap_messages %}
+    <header id="slider-area"> 
       <nav class="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
+      
+
         <div class="container">          
           <a class="navbar-brand" href="{% url 'index' %}"><span class="lni lni-crown"></span>  AM RING</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,8 +104,10 @@
             </ul>              
           </div>
         </div>
+        
       </nav>
     </div>
+    
     </header> 
 
     {% block content %} {% endblock %}  
