@@ -46,10 +46,14 @@ class Login(View):
                 print(request.session['cliente'])
 
                 if Login.return_url:
-                    print('12')
+
                     return HttpResponseRedirect(Login.return_url)
                 else:
                     Login.return_url = None
+                    request.session['logado'] = nome_sobrenome
+                    teste = request.session['logado']
+                    print(teste)
+
                     
                     
 
@@ -58,6 +62,7 @@ class Login(View):
                 error_message = 'Invalid 1 !!'
         else:
             error_message = 'Invalid 2 !!'
+            messages.error(request, 'Login ou senha inválido!' )
 
   
         print(email, senha)

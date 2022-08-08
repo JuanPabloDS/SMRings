@@ -1,55 +1,70 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% load bootstrap4 %}
 
+<div class="division">
+    <section class="ftco-section">
+        <div class="container section-title wow fadeInDown" data-wow-delay="0.3s">
+            <div class="row justify-content-center">
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <div class="wrap borda-login">
+                        <div class="login-wrap p-4 p-md-5">
+                      <div class="d-flex">
+                                <div class="w-100">
+                                    <div class="section-header text-center">
+                                        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Login</h2>
+                                        <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+                                    </div>
 
-<section class="ftco-section">
-    <div class="container section-title wow fadeInDown" data-wow-delay="0.3s">
-        <div class="row justify-content-center">
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-7 col-lg-5">
-                <div class="wrap">
-                    <div class="login-wrap p-4 p-md-5">
-                  <div class="d-flex">
-                            <div class="w-100">
-                                <div class="section-header text-center">
-                                    <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Login</h2>
-                                    <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+                                    {% bootstrap_messages %}
+
                                 </div>
-                            </div>
-                  </div>
-                        <form action="#" class="signin-form" method="POST">
-                            {% csrf_token %}
-                      <div class="form-group mt-3">
-                          <input type="email" name="email" required id="email" placeholder="Nome do Usúario" class="form-control" required data-error="Please enter your subject">
+                                
                       </div>
-                <div class="form-group">
-                    <input type="password" name="senha" required id="senha" placeholder="Senha" class="form-control" required data-error="Please enter your subject">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Logar</button>
-                </div>
-                <div class="form-group d-md-flex">
-                    <div class="w-50 text-left">
-                        <label class="checkbox-wrap checkbox-primary mb-0">Lembre-se
-                                  <input type="checkbox" checked>
-                                  <span class="checkmark"></span>
-                                    </label>
+                            <form action="#" class="signin-form" method="POST">
+                                {% csrf_token %}
+                          <div class="form-group mt-3">
+                                <div class="tam-email">
+                                <p class="email-new" id="email-new"></p>
                                 </div>
-                                <div class="w-50 text-md-right">
-                                    <a href="#">Esqueceu a senha</a>
-                                </div>
+                                <input type="email" onclick="change()" name="email" required id="email" placeholder="Email" class="form-control" required data-error="Please enter your subject">
+                          </div>
+                    <div class="form-group">
+                        <div class="tam-senha">
+                            <p class="senha-new" id="senha-new"></p>
+                            </div>
+                        <input type="password" autocomplete="off" onclick="change_senha()" name="senha" required id="senha" placeholder="Senha" class="form-control form-place" required data-error="Please enter your subject">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Logar</button>
+                    </div>
+                    <div class="form-group d-md-flex">
+                        <div class="w-50 text-left">
+                            <label class="checkbox-wrap checkbox-primary mb-0">Lembre-se
+                                      <input type="checkbox" checked>
+                                      <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="w-50 text-md-right">
+                                        <a href="#">Esqueceu a senha</a>
+                                    </div>
+                    </div>
+                  </form>
+                  <p class="text-center">Não tem cadastro? <a href="{% url 'cadastro' %}">Cadastrar</a></p>
                 </div>
-              </form>
-              <p class="text-center">Não tem cadastro? <a href="{% url 'cadastro' %}">Cadastrar</a></p>
-            </div>
-          </div>
+              </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<br><br><br><br>
+    </section>
+    
+
+
+
+</div>
 
 <!-- Footer Section Start --> 
 {% include 'footer.html' %}

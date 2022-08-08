@@ -22,14 +22,21 @@ class IndexView(TemplateView):
 
         # Redirect para o carrinho
         request.session['redirect'] = 'index'
-        request.session['mensagem'] = ''
 
         #------------------------#
         # Exibir mensagem de anel enviado ao carrinho
 
         if request.session.has_key('mensagem_carrinho_salvo'):
+            
             messages.success(request, 'Enviado com sucesso para o carrinho!' )
             request.session.pop('mensagem_carrinho_salvo')
+
+        elif request.session.has_key('logado'):
+            
+            nome = request.session['logado']
+            messages.success(request, f'Bem vindo {nome}!' )
+            request.session.pop('logado')
+
             
             
 

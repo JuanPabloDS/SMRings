@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
     <link rel="stylesheet" href="{% static 'css/slide.css' %}">
     <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
 
 
     <!-- JavaScript -->
@@ -41,7 +43,9 @@
   <body>
     <!-- Header Section Start -->
     <div class="div-inicio" ></div>
+    {% if request.session.mensagem_carrinho_salvo %}
     {% bootstrap_messages %}
+    {% endif %}
     <header id="slider-area"> 
       <nav class="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
       
@@ -129,6 +133,7 @@
           }
       });
     </script>
+    <script src="{% static 'js/login.js' %}"></script>
     <script src="{% static 'js/jquery-min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
