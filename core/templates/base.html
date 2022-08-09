@@ -32,6 +32,7 @@
 
 
 
+
     <!-- JavaScript -->
     <script src="{% static 'js/aneis.js' %}"></script>
 
@@ -43,9 +44,7 @@
   <body>
     <!-- Header Section Start -->
     <div class="div-inicio" ></div>
-    {% if request.session.mensagem_carrinho_salvo %}
-    {% bootstrap_messages %}
-    {% endif %}
+
     <header id="slider-area"> 
       <nav class="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
       
@@ -133,8 +132,15 @@
           }
       });
     </script>
+
+    {% if sigup %}
+    <script src="{% static 'js/signup.js' %}"></script>
+    {% endif %}
+    {% if login %}
     <script src="{% static 'js/login.js' %}"></script>
+    {% endif %}
     <script src="{% static 'js/jquery-min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/classie.js' %}"></script>

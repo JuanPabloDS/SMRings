@@ -2,13 +2,14 @@
 {% load static %}
 {% block content %}
 
-<section id="" class="section-header bg-gray ftco-section" style="padding-bottom: 0px;">
+<div class="division-cadastro">
+<section id="" class="section-header bg-gray ftco-section padding-cad" style="padding-bottom: 0px;">
     <div class="container login-wrap p-4 p-md-5">
 
 
-      <div class="col-md-7 container">
+      <div class="col-md-7 container wow fadeInDown "data-wow-delay="0.3s">
         <div class="wrap">
-            <div class="login-wrap p-4 p-md-5">
+            <div class=" login-wrap p-4 p-md-5 borda-login">
       <div class="section-header text-center">
         <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Cadastro</h2>
         <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
@@ -22,33 +23,38 @@
               <form id="contato" method="POST">
                 {% csrf_token %}
                 <div class="row">
-                  <div class="col-md-12">
+                  <p class="up" id="nome-up"></p>
+                  <div class="col-md-12">  
                     <div class="form-group">
-                      <input type="text" name="nome" required id="nome" placeholder="Nome" class="form-control" required data-error="Please enter your subject">
+                      <input type="text" name="nome" autocomplete="off" minlength="3" maxlength="50" onclick="signup_nome()" required id="nome" placeholder="Nome" class="form-control" required data-error="Please enter your subject">
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
+                  <p class="up" id="sobrenome-up"></p>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="text" name="sobrenome" required id="sobrenome" placeholder="sobrenome" class="form-control" required data-error="Please enter your subject">
+                      <input type="text" name="sobrenome" autocomplete="off" minlength="3" maxlength="50" onclick="signup_sobrenome()" required id="sobrenome" placeholder="sobrenome" class="form-control" required data-error="Please enter your subject">
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
+                  <p class="up" id="telefone-up"></p>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="tel" name="telefone" required id="telefone" placeholder="telefone" pattern="[0-9]{2}-[0-9]{9}" class="form-control input-padrao" required data-error="Please enter your subject">
+                      <input type="tel" name="telefone" autocomplete="off" minlength="14" maxlength="15" onkeypress="$(this).mask('(00) 0000-00009')"  onclick="signup_telefone()" required id="telefone" placeholder="telefone" class="form-control input-padrao" required data-error="Please enter your subject">
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
+                  <p class="up" id="email-up"></p>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="email" name="email" required id="email" placeholder="E-mail" class="form-control" required data-error="Please enter your subject">
+                      <input type="email" autocomplete="off" maxlength="50" onclick="signup_email()" name="email" required id="email" placeholder="E-mail" class="form-control" required data-error="Insira um email válido.">
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
+                  <p class="up" id="senha-up"></p>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="password" name="senha" required id="senha" placeholder="Senha" class="form-control" required data-error="Please enter your subject">
+                      <input type="password" autocomplete="off" name="senha" minlength="6" maxlength="100" onclick="signup_senha()" required id="senha" placeholder="Senha" class="form-control" required data-error="Please enter your subject">
                       <div class="help-block with-errors"></div>
                     </div>
                     <!-- <div class="form-group">
@@ -74,6 +80,7 @@
       </div>
     </div>
   </section>
+</div>
 
 
 

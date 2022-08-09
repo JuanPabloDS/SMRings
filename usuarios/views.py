@@ -22,10 +22,14 @@ class Login(View):
         # Redirect para o carrinho
         request.session['redirect'] = 'login'
 
+        context = {
+            'login': 'True',
+        }
+
         if request.session.has_key('cliente'):
             return redirect('/')
         else:
-            return render(request, 'usuarios/login.html')
+            return render(request, 'usuarios/login.html', context)
     
 
     def post(self, request):
@@ -62,7 +66,10 @@ class Login(View):
                 error_message = 'Invalid 1 !!'
         else:
             error_message = 'Invalid 2 !!'
+            request.session['invalid_login'] = True
             messages.error(request, 'Login ou senha inválido!' )
+
+
 
   
         print(email, senha)
@@ -81,7 +88,11 @@ class Signup (View):
         # Redirect para o carrinho
         request.session['redirect'] = 'cadastro'
 
-        return render(request, 'usuarios/cadastro.html')
+        context = {
+            'sigup': 'True',
+        }
+
+        return render(request, "usuarios/cadastro.html", context)
   
     def post(self, request):
         postData = request.POST
@@ -116,30 +127,43 @@ class Signup (View):
             cliente.register()
             return redirect('/login/')
         else:
-            data = {
-                'error': error_message,
-                'values': value
-            }
-            return render(request, 'usuarios/cadastro.html', data)
+            
+            return redirect('/erro-cadastro/')
   
     def validarCliente(self, cliente):
         error_message = None
+
         if (not cliente.nome):
-            error_message = "Por favor coloque ser primeiro nome !!"
+            error_message = 'Insira o nome corretamente'
         elif len(cliente.nome) < 3:
             error_message = 'Nome precisa ter mais do que 3 caracteres'
+        elif len(cliente.nome) > 50:
+            error_message = 'Nome precisa ter mais do que 3 caracteres'
+
         elif not cliente.sobrenome:
             error_message = 'Por favor insira seu sobrenome'
         elif len(cliente.sobrenome) < 3:
             error_message = 'Sobrenome precisa ter mais do que 3 caracteres'
+        elif len(cliente.sobrenome) > 50:
+            error_message = 'Sobrenome precisa ter mais do que 3 caracteres'
+
         elif not cliente.telefone:
             error_message = 'Insira seu numero'
-        elif len(cliente.telefone) < 12:
-            error_message = 'Numero precisa ter mais do que 12 caracteres'
+        elif len(cliente.telefone) < 14:
+            error_message = 'Numero precisa ter mais do que 14 caracteres'
+        elif len(cliente.telefone) > 15:
+            error_message = 'Numero precisa ter mais do que 14 caracteres'
+
         elif len(cliente.senha) < 5:
             error_message = 'Senha dever ter mais do que 5 caracteres'
+        elif len(cliente.senha) > 100:
+            error_message = 'Senha dever ter mais do que 5 caracteres'
+
         elif len(cliente.email) < 5:
             error_message = 'Email deve ter mais do 5 caracteres'
+        elif len(cliente.email) > 50:
+            error_message = 'Email deve ter mais do 5 caracteres'
+
         elif cliente.isExists():
             error_message = 'Endereço de email já existe.'
         # saving

@@ -237,3 +237,8 @@ class ErroView(TemplateView):
     template_name: str = 'erro.html'
     return_url = None
 
+
+class ErroCadastroView(TemplateView):
+    template_name: str = 'erro-cadastro.html'
+    return_url = None
+

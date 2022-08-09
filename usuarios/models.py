@@ -5,7 +5,7 @@ from django.db import models
 class Clientes(models.Model):
     nome = models.CharField(max_length=50)
     sobrenome = models.CharField(max_length=50)
-    telefone = models.CharField(max_length=12)
+    telefone = models.CharField(max_length=15)
     email = models.EmailField()
     senha = models.CharField(max_length=100)
   

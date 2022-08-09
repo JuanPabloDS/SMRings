@@ -19,8 +19,6 @@ function change_senha() {
 document.addEventListener('mouseup', function(e) {
     var container = document.getElementById('email');
     var senha = document.getElementById('senha');
-    var vazio = ""
-    console.log(container)
     if (!container.contains(e.target) && container.value === ""){ 
         container.setAttribute('placeholder', 'Email');
         document.getElementById("email-new").innerHTML = "";
