@@ -13,17 +13,30 @@
             {% if request.session.carrinho %}
             {% for key, id in request.session.carrinho.items %}
 
+
             <div class="cart-row"> 
-              <img class="img-car" src="/media/{{ id.4 }}" alt="">                        
+              <img class="img-car" src="/media/{{ id.4 }}" alt="">    
+
               <div class="cart-row-cell desc cart-cell-p">                          
-                <p>{{ id.1 }}</p>            
+                <p>{{ id.1 }}</p> 
+              </div>
+
+              <div>          
                 <p class="cart-p">Quantidade: {{ id.2 }}</p>
+              </div>
+
+              <div>
                 <p class="cart-p">Tamanho: {{ id.5 }}</p>
+              </div>
+
+              <div>
                 <p class="cart-p price">R$ {{ id.3 }}</p>
               </div>
+
                 <a href="{% url 'carrinho' key %}">
                   <i class="lni lni-cross-circle"></i>
-                </a>                   
+                </a> 
+                                  
               <div class="cart-row-cell pic">
                 <form action="POST">
                 <a>      
@@ -31,6 +44,7 @@
                 </a>
                 </form>                                                 
               </div>
+              
             </div>
 
             {% endfor %}

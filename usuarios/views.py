@@ -67,7 +67,7 @@ class Login(View):
         else:
             error_message = 'Invalid 2 !!'
             request.session['invalid_login'] = True
-            messages.error(request, 'Login ou senha inválido!' )
+            messages.error(request, 'Login ou senha inválido(s)!' )
 
 
 
@@ -116,6 +116,7 @@ class Signup (View):
                             telefone=telefone,
                             email=email,
                             senha=senha)
+
         error_message = self.validarCliente(cliente)
 
         print(error_message)
@@ -125,6 +126,7 @@ class Signup (View):
             print(nome, sobrenome, telefone, email, senha)
             cliente.senha = make_password(cliente.senha)
             cliente.register()
+            messages.success(request, 'Cadastro efetuado com sucesso!! Faça o login agora.' )
             return redirect('/login/')
         else:
             

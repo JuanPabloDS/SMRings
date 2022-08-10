@@ -2228,8 +2228,15 @@ textarea {
 
 footer .footer-Content {
   background-color: #ffffff;
-  padding: 60px 0;
+  padding: 30px 0;
   color: #546E7A;
+
+  border-top: solid;
+  border-width: 1px;
+  border-color: rgb(182, 177, 177);
+  box-shadow: 0px -10px 18px -18px;
+
+  
 }
 
 .textwidget {
