@@ -13,47 +13,44 @@
             {% if request.session.carrinho %}
             {% for key, id in request.session.carrinho.items %}
 
-
-            <div class="cart-row"> 
-              <img class="img-car" src="/media/{{ id.4 }}" alt="">    
-
-              <div class="cart-row-cell desc cart-cell-p">                          
-                <p>{{ id.1 }}</p> 
+  
+            <div class="all">
+              <div class="div-img-car">
+                <img class="img-car" src="/media/{{ id.4 }}" alt="">
+              </div>
+              <div class="cart-name">                          
+                <p>{{ id.1 }}</p>
+              </div>
+              <div class="delete">
+                  <a href="{% url 'carrinho' key %}">
+                    <i class="lni lni-cross-circle"></i>
+                  </a>
               </div>
 
-              <div>          
-                <p class="cart-p">Quantidade: {{ id.2 }}</p>
-              </div>
-
-              <div>
-                <p class="cart-p">Tamanho: {{ id.5 }}</p>
-              </div>
-
-              <div>
-                <p class="cart-p price">R$ {{ id.3 }}</p>
-              </div>
-
-                <a href="{% url 'carrinho' key %}">
-                  <i class="lni lni-cross-circle"></i>
-                </a> 
-                                  
-              <div class="cart-row-cell pic">
-                <form action="POST">
-                <a>      
-                <i class="lni lni-cross-circle"></i>
-                </a>
-                </form>                                                 
-              </div>
               
             </div>
+              
+
+              <div class="cart-quant">          
+                <p class="cart-p">Quantidade: {{ id.2 }}</p>
+                <p class="cart-p" >Tamanho: {{ id.5 }}</p>
+
+              </div>
+
+            
+
+              <div class="cart-price">
+                <p class="cart-p price">R$ {{ id.6 }}</p>
+              </div>
+              <div class="div-border"></div>
 
             {% endfor %}
             </div>
             <footer class="footera">                          
               <div class="totals">                     
-                <strong> <p class="total-label">Total:  R$ {{ request.session.total }}</p></strong>         
+                <strong class="total-label">Total:  R$ {{ request.session.total }}</strong>    
               </div>
-              <a href="">
+              <a href="login.html">
               <button class="button-color">Finalizar Compra</button>
               </a>           
             </footer>

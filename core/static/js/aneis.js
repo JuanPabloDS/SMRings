@@ -28,4 +28,13 @@ function total() {
      
 }
 
+function multi(var_qtd, var_preco) {
+     var qtd = parseInt(var_qtd);
+     var preco = parseFloat(var_preco);
+
+     total = qtd * preco;
+     document.write("R$ ",total);
+
+}
+
  

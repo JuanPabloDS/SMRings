@@ -162,8 +162,8 @@ class AneisDetailView(DetailView):
             anel_imagem = anel.imagem
             quantidade = postData.get('quantidade')
             tamanho = postData.get('tamanho')
-            print(f'----> {tamanho}')
             carrinho = request.session['carrinho']
+            preco_qtd = int(quantidade) * anel.preco
             loop = True
             n = 1
             pk = str(n)
@@ -204,7 +204,7 @@ class AneisDetailView(DetailView):
                     print(f'pk: {pk}')
                 else:
                     loop = False
-                    novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem), tamanho ]}
+                    novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem), tamanho, str(Anel.real_br_money(preco_qtd)) ]}
                     carrinho.update(novo_carrinho)
                     request.session['carrinho'] = carrinho
                     print(request.session['carrinho'])
