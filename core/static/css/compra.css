@@ -1,0 +1,64 @@
+.division-compra {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, white 0%, white 50%, #fa8ea6 51%, #fa8ea6 100%);
+    position: relative;
+}
+
+.compra-finalizada{
+
+    position: relative;
+    background-color: aquamarine;
+    border: solid;
+    max-width: 500px;
+    max-height: 500px;
+
+}
+
+
+.compra-finalizada img {
+    max-width: 170px;
+    max-height: 170px;
+
+    float: left;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: #d6d6d6;
+}
+
+.img-responsivo-compra{
+    width: 170px;
+    float: left;
+    margin-right: 10px;
+
+}
+
+.compra-div {
+    max-width: 100%;
+    max-height: 180px;
+    background-color: gold;
+    position: relative;
+}
+
+.compra-responsive-nome {
+   background-color:saddlebrown;
+   width: 200px;
+   height: 100px;
+    position: relative;
+    float: left;
+}
+
+.compra-responsive-nome p {
+    font-size: 14px;
+    word-spacing: 2px;
+    line-height: 35px;
+    font-weight: 700;
+    color: #f97794;
+
+}
+
+
+

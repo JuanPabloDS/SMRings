@@ -232,6 +232,14 @@ class AneisDetailView(DetailView):
 
         return redirect('/')
 
+
+class FinalizarCompraDetailView(TemplateView):
+    template_name: str = 'finalizar-compra.html'
+    
+    def get(self, request):
+        
+        return render(request, 'finalizar-compra.html')
+
     
 class ErroView(TemplateView):
     template_name: str = 'erro.html'

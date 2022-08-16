@@ -50,7 +50,7 @@
               <div class="totals">                     
                 <strong class="total-label">Total:  R$ {{ request.session.total }}</strong>    
               </div>
-              <a href="login.html">
+              <a href="{% url 'finalizar-compra'%}">
               <button class="button-color">Finalizar Compra</button>
               </a>           
             </footer>
