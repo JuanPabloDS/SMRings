@@ -10,7 +10,7 @@
                 <div class="row justify-content-center">
                 </div>
                 <div class="row justify-content-center ">
-                    <div class="col-md-7 col-lg-7">
+                    <div class="comp-div">
                         <div class="wrap borda-login">
                             <div class="login-wrap p-4 p-md-5">
                           <div class="d-flex">
@@ -23,27 +23,50 @@
                                 </div>
                                <div>
                                 <div class="cart-body">           
-                                    <div class="cart-item">
+                                    <div class="">
                                       
                                       {% if request.session.carrinho %}
                                       {% for key, id in request.session.carrinho.items %}
                                     
-                                        <div class="compra-finalizada">
-                                            <div class="compra-div">
+                                        
+                                            <div class="compra-div container">
                                                 <div class="img-responsivo-compra">
                                                     <img class="" src="/media/{{ id.4 }}" alt="">
                                                 </div>
                                              
                                                 <div class="compra-responsive-nome">
+                                                    <div class="name-compra">
                                                     <p class="">{{ id.1 }}</p>
-                                                </div>
+                                                    </div>
+                                                    <div class="compra-exclude">
+                                                    <a class="" href="{% url 'carrinho' key %}">
+                                                        <i class="lni lni-cross-circle"></i>
+                                                      </a>
+                                                    </div>
+                                                    <p class="qtd-compra">Quantidade: {{ id.2 }}</p>
+                                                    <p class="tam-compra" >Tamanho: {{ id.5 }}</p>
+                                                    <p class="din-compra">R$ {{ id.6 }}</p>
+                                                    
+
+                                                </div>                            
                                             </div>
-                                        </div>
+                                            
+                                        
                                         {% endfor %}
                                         {% endif %}
                                         
+                                        
                                </div>
+                               
                     </div>
+                    <div class="total-comp">                     
+                        <strong class="total-label">Total:  R$ {{ request.session.total }}</strong>    
+                      </div>
+                      <div class="button-com-ct">
+                      <a href="{% url 'finalizar-compra'%}">
+                      <button class="button-comp">Finalizar Compra</button>
+                      </a>
+                        </div>
                   </div>
                     </div>
                 </div>
