@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.db.models import Q
 from django.contrib import messages
 from numpy import empty
+from django.utils import timezone
 
 from .models import Anel, Tamanho
 from carrinho.models import Carrinho , CarrinhoAneis
@@ -37,6 +38,10 @@ class IndexView(TemplateView):
             messages.success(request, f'Bem vindo {nome}!' )
             request.session.pop('logado')
 
+
+        # Apaga a session de redirect para finalizar a compra
+        if request.session.has_key('compra'):
+             request.session.pop('compra')
             
             
 
@@ -133,6 +138,10 @@ class AneisDetailView(DetailView):
 
         anel = Anel.objects.get(id=pk)
 
+        
+        # Apaga a session de redirect para finalizar a compra
+        if request.session.has_key('compra'):
+             request.session.pop('compra')
 
         context = {
             'anel' : anel
@@ -154,8 +163,7 @@ class AneisDetailView(DetailView):
             request.session['carrinho'] = carrinho_new
         else:
             print('Funciona')
-            c_carrinho =  Carrinho.objects.get(id=5)
-            c_carrinho_id = c_carrinho.id
+            
             anel = Anel.objects.get(id=(postData.get('anel_id')))
             anel_id = anel.nome
             anel_preco = Anel.real_br_money(anel.preco)
@@ -204,7 +212,7 @@ class AneisDetailView(DetailView):
                     print(f'pk: {pk}')
                 else:
                     loop = False
-                    novo_carrinho = {pk: [c_carrinho_id, anel_id, quantidade, anel_preco, str(anel_imagem), tamanho, str(Anel.real_br_money(preco_qtd)) ]}
+                    novo_carrinho = {pk: [ anel_id, quantidade, anel_preco, tamanho, str(anel_imagem),  str(Anel.real_br_money(preco_qtd)) ]}
                     carrinho.update(novo_carrinho)
                     request.session['carrinho'] = carrinho
                     print(request.session['carrinho'])
@@ -219,13 +227,13 @@ class AneisDetailView(DetailView):
 
 
             for preco in request.session['carrinho'].values():
-                anel_total = preco[3]
-                quantidade_tl = int(preco[2])
+                print(preco)
+                anel_total = preco[2]
+                quantidade_tl = int(preco[1])
                 totais = Anel.dolar_money(anel_total) * quantidade_tl
                 total = total + totais
                 total_conv = Anel.real_br_money(total)
                 request.session['total'] = total_conv
-                print(request.session['total'])
 
         
 
@@ -235,10 +243,46 @@ class AneisDetailView(DetailView):
 
 class FinalizarCompraDetailView(TemplateView):
     template_name: str = 'finalizar-compra.html'
+
+    
     
     def get(self, request):
+
+        if request.session.has_key('cliente'):
+            
+            return render(request, 'finalizar-compra.html')
+        else:
+            request.session['compra'] = True
+            messages.success(request, f'Faça o login primeiro para efetuar a compra.' )
+            print(request.session['compra'])
+            return redirect('../login/')
         
-        return render(request, 'finalizar-compra.html')
+
+    def post(self, request,  *args, **kwargs):
+        carrinho = request.session['carrinho']
+
+        id_carrinho = Carrinho.objects.all()
+        id_filter = id_carrinho.last()
+        print(id_filter.id)
+        print('------------')
+
+        print(dir(id_carrinho))
+        print('------------')
+        
+
+
+        criar_carrinho = Carrinho(5, timezone.now(), timezone.now(), 1 )
+        print('-mm-')
+        print(dir(criar_carrinho))
+        criar_carrinho.save()
+
+        print(carrinho)
+        messages.success(request, f'Obrigado pela compra!!!' )
+
+        return redirect('/')
+
+
+
 
     
 class ErroView(TemplateView):

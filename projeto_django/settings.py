@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'usuarios.apps.UsuariosConfig', # Colocar no codigo
     'carrinho',
+    'usuarios',
     'bootstrap4',
     'stdimage',
 ]

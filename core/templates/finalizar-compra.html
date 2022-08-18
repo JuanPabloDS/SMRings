@@ -16,7 +16,7 @@
                           <div class="d-flex">
                                     <div class="w-100">
                                         <div class="section-header text-center">
-                                            <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Finalizar compra</h2>
+                                            <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Carrinho</h2>
                                             <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
                                         </div>
                                     </div>
@@ -63,9 +63,12 @@
                         <strong class="total-label">Total:  R$ {{ request.session.total }}</strong>    
                       </div>
                       <div class="button-com-ct">
-                      <a href="{% url 'finalizar-compra'%}">
-                      <button class="button-comp">Finalizar Compra</button>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                      <a href="{% url 'index'%}">
+                      <button id="form-submit" type="submit" class="button-comp">Comprar</button>
                       </a>
+                    </form>
                         </div>
                   </div>
                     </div>

@@ -27,7 +27,9 @@ class Login(View):
         }
 
         if request.session.has_key('cliente'):
+            
             return redirect('/')
+
         else:
             return render(request, 'usuarios/login.html', context)
     
@@ -53,15 +55,19 @@ class Login(View):
 
                     return HttpResponseRedirect(Login.return_url)
                 else:
-                    Login.return_url = None
-                    request.session['logado'] = nome_sobrenome
-                    teste = request.session['logado']
-                    print(teste)
-
-                    
-                    
+                    if request.session.has_key('compra'):
+                        print('asdasd454.654.654.564.654.654')
+                        request.session['logado'] = nome_sobrenome
+                        return redirect('/finalizar-compra/')
+                        
+                    else:
+                        Login.return_url = None
+                        request.session['logado'] = nome_sobrenome
+                        teste = request.session['logado']
+                        print(teste)
 
                     return redirect('/')
+
             else:
                 error_message = 'Invalid 1 !!'
         else:
@@ -69,11 +75,6 @@ class Login(View):
             request.session['invalid_login'] = True
             messages.error(request, 'Login ou senha inválido(s)!' )
 
-
-
-  
-        print(email, senha)
-        print(error_message)
         return render(request, 'usuarios/login.html', {'error': error_message})
   
   
@@ -126,7 +127,7 @@ class Signup (View):
             print(nome, sobrenome, telefone, email, senha)
             cliente.senha = make_password(cliente.senha)
             cliente.register()
-            messages.success(request, 'Cadastro efetuado com sucesso!! Faça o login agora.' )
+            messages.success(request, 'Cadastro efetuado com sucesso!! Faça o login aqui.' )
             return redirect('/login/')
         else:
             

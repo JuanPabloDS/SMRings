@@ -23,6 +23,7 @@ class CarrinhoAneis(models.Model):
     carrinho_id = models.ForeignKey(Carrinho, on_delete=models.SET('0'))
     anel_id = models.ForeignKey(Anel, on_delete=models.SET('0'))
     quantidade = models.IntegerField('Quantidade')
+    tamanho = models.IntegerField('Tamanho')
 
     def register(self):
         self.save()
