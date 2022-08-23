@@ -8,7 +8,7 @@ from django.contrib import messages
 from numpy import empty
 from django.utils import timezone
 
-from .models import Anel, Tamanho
+from .models import Anel
 from carrinho.models import Carrinho , CarrinhoAneis
 
 
@@ -67,7 +67,7 @@ class IndexView(TemplateView):
             else:
                 request.session['mensagem'] = [mensagem, '']
         else:
-            print('foi')
+            request.session['mensagem'] = ''
             values = Anel.objects.all()
 
         print(f'Pega -> {mensagem}')
