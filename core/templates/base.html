@@ -61,23 +61,13 @@
               <li class="nav-item" id="search-change">
 
                 <div class="box">
-                  <form action="{% url 'index' %}#services" class="form" method="get">
-                      <input type="search" name="search" placeholder="Pesquisar" class="fm-inp">
+                  <form action="{% url 'index' %}#services" class="form" method="get" id="search-icon">
+                      <input type="search" name="search" id="input-icon" placeholder="Pesquisar" class="fm-inp">
                   </form>
                   <button class="btn-search nav-link page-scroll" >
                     <i class="fas lni lni-search search-lup"></i>
                   </button>
                 </div>
-
-
-
-                <!--<li class="nav-item search-a">
-                  <a class="nav-link page-scroll" href=""><i class="lni lni-search search-lup"></i></a>
-                </li>-->
-                <!--<form class="form-inline search">
-                  <input class="form-control mr-sm-2 " type="search" placeholder="..." aria-label="Pesquisar">
-                  <button class="btn  " type="submit"><p>Pesquisar</p></button>
-                </form>-->
               </li>
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="{% url 'index' %}">Home</a>
@@ -133,6 +123,9 @@
               search.classList.toggle("actived");
           }
       });
+
+      
+
     </script>
 
     {% if sigup %}
@@ -141,6 +134,7 @@
     {% if login %}
     <script src="{% static 'js/login.js' %}"></script>
     {% endif %}
+    <script src="{% static 'js/search.js' %}"></script>
     <script src="{% static 'js/jquery-min.js' %}"></script>
     <script src="{% static 'js/jquery.mask.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

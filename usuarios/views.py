@@ -56,7 +56,7 @@ class Login(View):
                     return HttpResponseRedirect(Login.return_url)
                 else:
                     if request.session.has_key('compra'):
-                        print('asdasd454.654.654.564.654.654')
+
                         request.session['logado'] = nome_sobrenome
                         return redirect('/finalizar-compra/')
                         
@@ -79,7 +79,7 @@ class Login(View):
   
   
 def logout(request):
-    request.session.clear()
+    request.session.pop('cliente')
     return redirect('/')
 
 
