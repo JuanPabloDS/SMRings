@@ -1,19 +1,17 @@
 {% load static %}
 
 <li class="nav-item dropdown dropdown-menu-right">
-    <a class="nav-link dropdown-toggle dropdown-menu-right" href="../#features" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carrinho</a>
-    <div class="dropdown-menu carrinho-tam dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-      <div class="cart-container">
-        <header>
-          <h3 class="color"><i class="lni lni-cart"></i> CARRINHO</h3>            
-        </header>           
-        <div class="cart-body">           
-          <div class="cart-item">
-            <div class="table-overflow">
+  <a class="nav-link dropdown-toggle dropdown-menu-right" href="../#features" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carrinho</a>
+  <div class="dropdown-menu carrinho-tam dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+    <div class="cart-container">
+      <header>
+        <h3 class="color"><i class="lni lni-cart"></i> CARRINHO</h3>            
+      </header>           
+      <div class="cart-body">           
+        <div class="cart-item">
+          <div class="table-overflow">
             {% if request.session.carrinho %}
             {% for key, id in request.session.carrinho.items %}
-
-  
             <div class="all">
               <div class="div-img-car">
                 <img class="img-car" src="/media/{{ id.4 }}" alt="">
@@ -22,48 +20,38 @@
                 <p>{{ id.0 }}</p>
               </div>
               <div class="delete">
-                  <a href="{% url 'carrinho' key %}">
-                    <i class="lni lni-cross-circle"></i>
-                  </a>
-              </div>
-
-              
+                <a href="{% url 'carrinho' key %}">
+                  <i class="lni lni-cross-circle"></i>
+                </a>
+              </div> 
             </div>
-              
-
-              <div class="cart-quant">          
-                <p class="cart-p">Quantidade: {{ id.1 }}</p>
-                <p class="cart-p" >Tamanho: {{ id.3 }}</p>
-
-              </div>
-
-            
-
-              <div class="cart-price">
-                <p class="cart-p price">R$ {{ id.5 }}</p>
-              </div>
-              <div class="div-border"></div>
-
+            <div class="cart-quant">          
+              <p class="cart-p">Quantidade: {{ id.1 }}</p>
+              <p class="cart-p" >Tamanho: {{ id.3 }}</p>
+            </div>
+            <div class="cart-price">
+              <p class="cart-p price">R$ {{ id.5 }}</p>
+            </div>
+            <div class="div-border"></div>
             {% endfor %}
+          </div>
+          <footer class="footera">                          
+            <div class="totals">                     
+              <strong class="total-label">Total:  R$ {{ request.session.total }}</strong>    
             </div>
-            <footer class="footera">                          
-              <div class="totals">                     
-                <strong class="total-label">Total:  R$ {{ request.session.total }}</strong>    
-              </div>
-              <a href="{% url 'finalizar-compra'%}">
+            <a href="{% url 'finalizar-compra'%}">
               <button class="button-color">Finalizar Compra</button>
-              </a>           
-            </footer>
-          </div>   
-        </div> 
-      </div>                   
-              {% else %}
-              <p>Carrinho está vazio</p>
-              <br>
-            </div>
-          </div> 
-      </div>
-      {% endif %}
-
+            </a>           
+          </footer>
+        </div>   
+      </div> 
+    </div>                   
+          {% else %}
+          <p>Carrinho está vazio</p>
+          <br>
+        </div>
+      </div> 
     </div>
-  </li>
+    {% endif %}
+  </div>
+</li>

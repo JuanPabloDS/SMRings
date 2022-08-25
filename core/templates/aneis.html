@@ -2,81 +2,70 @@
 {% load static %}
 {% block content %}
 
-    <!-- Services Section Start -->
-    <section id="services" class="section wow fadeInUp pg" data-wow-delay="0.3s" >
-        <div class="container">
-        <div class="section-header">          
-            <h2 class="section-title">Comprar</h2>
-            <p class="section-subtitle">Selecione o tamanho correto do anel</p>
-        </div>
-        <form method="POST">
-          {% csrf_token %}
-          <div class="container container-padding">
-          <div class="row container container-anel  wow ">
-              <input style="visibility:hidden" type="text" name="anel_id" required id="anel_id" value="{{ anel.id }}" >
-              <div class="container responsive-div">
-                <div class="section-header img-responsivo" data-wow-delay="0.2s">
-                  <img src="{{ anel.imagem.url }}" alt="" class="">
-                </div>
-                <div class="separator">
-
-                </div>
-                <div class="responsive-margin">
-                  <div class="responsive-nome">
-                    <p class="responsive-nome">{{ anel.nome }}</p>
-                  </div>
-                  <br>
-                  <div class="responsive-preco">
-                    <p class="preco-p">A PARTIR DE </p><p class="preco-pa"><script>real_br_money("{{ anel.preco }}")</script></p>
-                  </div>
-                  <br><br>
-                  <div class="responsive-tamanho">
-                    <p class="">Tamanho:</p>
-                    <select name="tamanho" id="tamanho" required data-error="Insira o tamanho desejado!" class="form-select form-select-sm responsive-select" aria-label=".form-select-sm example" size="1">
-                      <option selected value="">Selecionar</option>
-
-                      {% for t in anel.tamanho.all %}
-                        <option value="{{ t.tamanho }}">{{ t.tamanho }}</option>
-                      {% endfor %}
-
-                    </select>
-                  </div>
-                  <br>
-                    <div class="margin-label">
-                      <label>
-                        <span data-hook="number-input-spinner-title" >Quantidade:</span>
-                        <div class="responsive-select-loop">
-                          <input class="responsive-select-loop" onchange="total()" min="1" max="50" type="number" name="quantidade" required id="quantidade" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" />
-                          <div aria-hidden="true">
-                            <span data-hook="number-input-spinner-up-arrow">
-                            </span>
-                            <span data-hook="number-input-spinner-down-arrow">
-                            </span>
-                          </div>
-                        </div>
-                      </label>
-                    </div>
-                </div> 
+<!-- Services Section Start -->
+<section id="services" class="section wow fadeInUp pg" data-wow-delay="0.3s" >
+  <div class="container">
+    <div class="section-header">          
+      <h2 class="section-title">Comprar</h2>
+      <p class="section-subtitle">Selecione o tamanho correto do anel</p>
+    </div>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="container container-padding">
+        <div class="row container container-anel  wow ">
+          <input style="visibility:hidden" type="text" name="anel_id" required id="anel_id" value="{{ anel.id }}" >
+          <div class="container responsive-div">
+            <div class="section-header img-responsivo" data-wow-delay="0.2s">
+              <img src="{{ anel.imagem.url }}" alt="" class="">
+            </div>
+            <div class="separator"></div>
+            <div class="responsive-margin">
+              <div class="responsive-nome">
+                <p class="responsive-nome">{{ anel.nome }}</p>
               </div>
               <br>
-              <div class="total">
-                <strong>Total:  <span id="valor_total" name="valor_total"><script>real_br_money("{{ anel.preco }}")</script></span></strong>
-
+              <div class="responsive-preco">
+                <p class="preco-p">A PARTIR DE </p><p class="preco-pa"><script>real_br_money("{{ anel.preco }}")</script></p>
               </div>
-              <div class="submit-button container section-header">
-                <button class="btn btn-common compra" value="{{ anel.preco }}" id="form-submit" type="submit">Adicionar ao carrinho</button>
-              <div id="msgSubmit" class="h3 text-center hidden"></div>
+              <br><br>
+              <div class="responsive-tamanho">
+                <p class="">Tamanho:</p>
+                <select name="tamanho" id="tamanho" required data-error="Insira o tamanho desejado!" class="form-select form-select-sm responsive-select" aria-label=".form-select-sm example" size="1">
+                  <option selected value="">Selecionar</option>
+                  {% for t in anel.tamanho.all %}
+                  <option value="{{ t.tamanho }}">{{ t.tamanho }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <br>
+              <div class="margin-label">
+                <label>
+                  <span data-hook="number-input-spinner-title" >Quantidade:</span>
+                  <div class="responsive-select-loop">
+                    <input class="responsive-select-loop" onchange="total()" min="1" max="50" type="number" name="quantidade" required id="quantidade" pattern="[0-9]*" data-hook="number-input-spinner-input" value="1" aria-label="Quantidade" />
+                    <div aria-hidden="true">
+                      <span data-hook="number-input-spinner-up-arrow"></span>
+                      <span data-hook="number-input-spinner-down-arrow"></span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div> 
           </div>
+          <br>
+          <div class="total">
+            <strong>Total:  <span id="valor_total" name="valor_total"><script>real_br_money("{{ anel.preco }}")</script></span></strong>
           </div>
-        </form>
+          <div class="submit-button container section-header">
+            <button class="btn btn-common compra" value="{{ anel.preco }}" id="form-submit" type="submit">Adicionar ao carrinho</button>
+            <div id="msgSubmit" class="h3 text-center hidden"></div>
+          </div>
         </div>
-        </div>
-    </section>
+      </div>
+    </form>
+  </div>
+</section>
     <!-- Services Section End -->
-
-    
-
-
 
 <!-- Footer Section Start -->
 {% include 'footer.html' %}

@@ -46,6 +46,7 @@ class Anel(Base):
         return str(self.nome)
 
     def get_key(val, session):
+        """Função para buscar Id dos aneis dentro da session carrinho"""
         for key, value in session.items():
             if val == key:
                 return True
@@ -53,12 +54,14 @@ class Anel(Base):
         return False
 
     def real_br_money(my_value):
+        """Função para converter dolar em real"""
         a = '{:,.2f}'.format(float(my_value))
         b = a.replace(',','v')
         c = b.replace('.',',')
         return c.replace('v','.')
 
     def dolar_money(my_value):
+        """Função para converter real em dolar"""
         a = my_value.replace('.','')
         b = a.replace(',', '.')
         return float(b)

@@ -17,10 +17,10 @@ class AnelAdmin(admin.ModelAdmin):
         Função para mostrar os tamanhos dos aneis
         """
         lista = [num for num in obj.tamanho.all()]
-        lista2 = ([str(num) for num in lista])
+        dados = ([str(num) for num in lista])
 
         
-        return ', '.join([m for m in lista2])
+        return ', '.join([m for m in dados])
 
     get_tamanhos.short_description = 'Tamnhos'
 

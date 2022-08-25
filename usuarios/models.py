@@ -9,7 +9,7 @@ class Clientes(models.Model):
     email = models.EmailField()
     senha = models.CharField(max_length=100)
   
-    # to save the data
+    # Salvar os dados no banco
     def register(self):
         self.save()
   
@@ -19,18 +19,21 @@ class Clientes(models.Model):
 
     @staticmethod
     def get_cliente_by_email(email):
+        """Busca o email cadastrado dentro do banco"""
         try:
             return Clientes.objects.get(email=email)
         except:
             return False
   
     def isExists(self):
+        """Verifica se o email existe no banco"""
         if Clientes.objects.filter(email=self.email):
             return True
   
         return False
     
     def __str__(self) -> str:
+        """Retorna o str"""
         return f'{self.nome} {self.sobrenome}'
 
 
