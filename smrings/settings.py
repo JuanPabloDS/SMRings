@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-s#m%x+02gq5#v&whoo_n9)uh&^qt9sfw^nv3ytvusr)^vb5_aj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['smring.herokuapp.com']
 
 
@@ -86,7 +87,17 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+"""
 
 
 # Password validation

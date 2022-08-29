@@ -41,6 +41,7 @@ class Anel(Base):
     estoque = models.IntegerField('Quantidade em estoque')
     imagem = StdImageField('imagem', upload_to=get_file_path, variations={'thumb': (124, 124), 'thumb-index': (150, 150)})
     slug = models.SlugField('Slug', max_length=100, blank=True, editable=False)
+    caminho = models.CharField('Caminho', max_length=100, default=None)
 
     def __str__(self) -> str:
         return str(self.nome)

@@ -10,7 +10,7 @@ class TamanhoAdmin(admin.ModelAdmin):
 
 @admin.register(Anel)
 class AnelAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'preco', 'estoque', 'slug', 'criado', 'modificado', 'ativo', 'get_tamanhos')
+    list_display = ('nome', 'preco', 'estoque', 'slug', 'caminho', 'criado', 'modificado', 'ativo', 'get_tamanhos')
 
     def get_tamanhos(self, obj):
         """
