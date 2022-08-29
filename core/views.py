@@ -203,7 +203,7 @@ class FinalizarCompraDetailView(TemplateView):
                     return render(request, 'finalizar-compra.html')
 
             else:
-                """Se não estiver locago como cliente redireciona para a página de login"""
+                """Se não estiver logado como cliente redireciona para a página de login"""
                 request.session['compra'] = True
                 messages.success(request, f'Faça o login primeiro para efetuar a compra.' )
                 return redirect('../login/') 

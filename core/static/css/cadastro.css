@@ -47,7 +47,7 @@ border: 1px solid rgba(0, 0, 0, 0.1); }
   outline: none !important;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #F97794;; }
+  border: 1px solid #ffc673;; }
 
 .field-icon {
 position: absolute;
@@ -76,7 +76,7 @@ opacity: 1;
 text-transform: uppercase;
 font-size: 12px;
 letter-spacing: 1px;
-color: #F97794;;
+color: #ffc673;
 font-weight: 700; }
 
 .social-media {
@@ -93,7 +93,7 @@ width: 100%; }
   border-radius: 50%; }
 
   .social-media .social-icon:hover, .social-media .social-icon:focus {
-  background: #F97794;; }
+  background: #ffc673;; }
   .social-media .social-icon:hover span, .social-media .social-icon:focus span {
       color: #fff; }
 
@@ -150,9 +150,9 @@ color: rgba(0, 0, 0, 0.2); }
 
 /* Style the checkmark/indicator */
 .checkbox-primary {
-color: #F97794;; }
+color: #ffc673;; }
 .checkbox-primary input:checked ~ .checkmark:after {
-  color: #F97794;; }
+  color: #ffc673;; }
 
 .btn {
 cursor: pointer;
@@ -163,20 +163,20 @@ padding: 10px 20px; }
 .btn:hover, .btn:active, .btn:focus {
   outline: none; }
 .btn.btn-primary {
-  background: #F97794;
-  border: 1px solid #F97794;
+  background: #ffc673;
+  border: 1px solid #ffc673;
   color: #fff !important; }
 .btn.btn-primary:hover {
-  border: 1px solid #F97794;;
+  border: 1px solid #ffc673;;
   background: transparent;
-  color: #F97794;; }
+  color: #ffc673;; }
   .btn.btn-primary.btn-outline-primary {
-  border: 1px solid #F97794;;
+  border: 1px solid #ffc673;;
   background: transparent;
-  color: #F97794;; }
+  color: #ffc673;; }
   .btn.btn-primary.btn-outline-primary:hover {
       border: 1px solid transparent;
-      background: #F97794;;
+      background: #ffc673;;
       color: #fff; }
 
 

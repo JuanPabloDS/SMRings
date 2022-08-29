@@ -3,10 +3,13 @@
 .division {
     height: 800px;
     width: 100%;
-    background: linear-gradient(to right, white 0%, white 50%, #fa8ea6 51%, #fa8ea6 100%);
+    background: linear-gradient(to right, white 0%, white 50%, #ffc673 51%, #ffc673 100%);
     position: relative;
 }
 
+.green {
+ color: green;
+}
 
 
 .borda-login {
@@ -41,7 +44,7 @@
 .division-cadastro {
     height: 900px;
     width: 100%;
-    background: linear-gradient(to right, white 0%, white 50%, #fa8ea6 51%, #fa8ea6 100%);
+    background: linear-gradient(to right, white 0%, white 50%, #ffc673 51%, #ffc673 100%);
     position: relative;
 
 }

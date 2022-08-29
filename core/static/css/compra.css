@@ -54,14 +54,14 @@
     word-spacing: 2px;
     line-height: 30px;
     font-weight: 700;
-    color: #f97794;
+    color: #ffc673;
 }
 
 .compra-div {
 
     position: relative;
     float: left;
-    padding-left: 35px;
+    padding-left: 57px;
     border-bottom-width: 1px;
     border-top-width: 0px;
     border-right-width: 0px;
@@ -72,10 +72,11 @@
 }
 
 .compra-responsive-nome {
-    max-width: 250px;
+    max-width: 240px;
     position: relative;
     float: left;
 }
+
 
 
 
