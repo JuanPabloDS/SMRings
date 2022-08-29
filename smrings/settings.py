@@ -87,17 +87,7 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-"""
+
 
 
 # Password validation
