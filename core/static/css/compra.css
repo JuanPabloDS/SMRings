@@ -72,7 +72,7 @@
 }
 
 .compra-responsive-nome {
-   width: 220px;
+    max-width: 250px;
     position: relative;
     float: left;
 }
@@ -81,8 +81,8 @@
 
 .compra-exclude {
     float: left;
-    width: 10px;
-    height: 10px;
+    width: 40px;
+    height: 40px;
     padding-left: 30px;
     padding-top: 7px;
 
