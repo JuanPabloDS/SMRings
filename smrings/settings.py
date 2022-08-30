@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s#m%x+02gq5#v&whoo_n9)uh&^qt9sfw^nv3ytvusr)^vb5_aj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = ['smring.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['smring.herokuapp.com']
 
 
 # Application definition
@@ -83,20 +83,20 @@ WSGI_APPLICATION = 'smrings.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # Usando PostgrSQL com Heroku
-"""DATABASES = {
-    'default': dj_database_url.config()
-}"""
-
 DATABASES = {
+    'default': dj_database_url.config()
+}
+
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'AMRings',
-        'USER': 'geek',
-        'PASSWORD': 'university',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
-}
+}"""
 
 
 

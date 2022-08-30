@@ -2,7 +2,7 @@
 
 .aneis-tam{
     font-size: 36px;
-    color: #ffc673;
+    color: #f97794;
     height: 70px;
 
 }
@@ -63,12 +63,12 @@
 }
 
 .cor-preco{
-    color: #ffc673;
+    color: #f97794;
     font-size: 20px;
 }
 
 .visualizar{
-    background-color: #ffc673;
+    background-color: #f97794;
     padding: 8px;
    }
 
@@ -91,7 +91,7 @@
 .n-resultado p {
     font-size: 35px;
     align-items: center;
-    color: #ffc673;
+    color: #f97794;
 }
 
 .container-padding {
@@ -150,7 +150,7 @@
     word-spacing: 2px;
     line-height: 35px;
     font-weight: 700;
-    color: #ffc673;
+    color: #f97794;
 
 }
 
