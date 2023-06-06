@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s#m%x+02gq5#v&whoo_n9)uh&^qt9sfw^nv3ytvusr)^vb5_aj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['smring.herokuapp.com']
 
 
 # Application definition
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -82,14 +82,7 @@ WSGI_APPLICATION = 'smrings.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # Usando PostgrSQL com Heroku
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'contatos_smring',
@@ -98,7 +91,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}"""
+}
 
 """DATABASES = {
     'default': {
@@ -166,4 +159,4 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
-#SECURE_SSL_REDIRECT = True  # Acionar quando for para produção
+SECURE_SSL_REDIRECT = True  # Acionar quando for para produção

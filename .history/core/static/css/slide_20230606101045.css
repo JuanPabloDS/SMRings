@@ -91,13 +91,3 @@ padding-top: 0px;
 
     }
   }
-  @media screen and (max-width: 400px) {
-
-    .slide img {
-      padding-top: 22px;
-    }
-    .slide img {
-      width: 223%;
-
-    }
-  }

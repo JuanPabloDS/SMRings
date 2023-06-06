@@ -126,7 +126,6 @@ class AneisDetailView(DetailView):
         anel_nome = anel.nome   # Armazena o nome do anel na váriavel
         anel_preco = Anel.real_br_money(anel.preco)  # Armazena o preço do anel formatado
         anel_imagem = anel.imagem  # Armazena o endereço da imagem
-        print(anel_imagem)
         quantidade = postData.get('quantidade')  # Armazena a qauntidade do anel
         tamanho = postData.get('tamanho')  # Armazena o tamanho do anel
         carrinho = request.session['carrinho']  # Armazena os dados da session carrinho
@@ -164,7 +163,7 @@ class AneisDetailView(DetailView):
             else:
                 """Quando o ultimo Id é verificado o loop acaba e é adicionado os dados do novo anel no carrinho"""
                 loop = False
-                novo_carrinho = {pk: [ anel_nome, quantidade, anel_preco, tamanho, str(anel_imagem),  str(Anel.real_br_money(preco_qtd)), str(anel_id) ]}
+                novo_carrinho = {pk: [ anel_nome, quantidade, anel_preco, tamanho, anel_caminho,  str(Anel.real_br_money(preco_qtd)), str(anel_id) ]}
                 carrinho.update(novo_carrinho)
                 request.session['carrinho'] = carrinho
                 messages.success(request, 'Anel enviado com sucesso para o carrinho!' )

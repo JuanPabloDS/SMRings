@@ -36,7 +36,7 @@ padding-top: 0px;
   .section {
       padding-bottom: 133px;
   }
-}
+  }
 
   @media screen and (max-width: 765px) {
 
@@ -47,7 +47,6 @@ padding-top: 0px;
       width: 130%;
 
     }
-  }
 
     @media screen and (max-width: 730px) {
 
@@ -56,7 +55,7 @@ padding-top: 0px;
       }
       .slide img {
         width: 150%;
-
+  
       }
     }
 
@@ -79,25 +78,4 @@ padding-top: 0px;
   .section {
       padding-bottom: 133px;
   }
-  }
-
-  @media screen and (max-width: 475px) {
-
-    .slide img {
-      padding-top: 22px;
-    }
-    .slide img {
-      width: 193%;
-
-    }
-  }
-  @media screen and (max-width: 400px) {
-
-    .slide img {
-      padding-top: 22px;
-    }
-    .slide img {
-      width: 223%;
-
-    }
   }

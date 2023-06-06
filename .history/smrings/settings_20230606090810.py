@@ -166,4 +166,4 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
-#SECURE_SSL_REDIRECT = True  # Acionar quando for para produção
+SECURE_SSL_REDIRECT = True  # Acionar quando for para produção
