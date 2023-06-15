@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('painel-administrativo/', admin.site.urls),
     path('', include('core.urls')),
     path('', include('usuarios.urls')),  # Incluir essa linha
     path('', include('carrinho.urls')),  # Incluir essa linha
