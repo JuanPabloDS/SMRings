@@ -89,29 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'contatos_smring',
-        'USER': 'contatos_smringadm',
-        'PASSWORD': 'smringacesso#',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}"""
-
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}"""
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -166,4 +143,4 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
-SECURE_SSL_REDIRECT = True  # Acionar quando for para produção
+#SECURE_SSL_REDIRECT = True  # Acionar quando for para produção
